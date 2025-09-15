@@ -55,7 +55,7 @@ export default function Home() {
         {/* Available Vehicles/Locations Section */}
         <div className="mb-12 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mt-16">
           <h3 className="text-xl font-bold text-center mb-6 text-gray-900 dark:text-white">プルテウスレンタカーのレンタル可能車両/事業所</h3>
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text-center">
               <div className="inline-block bg-yellow-100 dark:bg-yellow-900 px-4 py-2 rounded-lg mb-2">
                 <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">⭐︎福岡県(福津市)⭐︎</h4>
