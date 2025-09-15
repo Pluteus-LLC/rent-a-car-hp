@@ -38,15 +38,17 @@ export default function Home() {
         {/* Main Image */}
         <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-lg">
           <Image
-            src="/プルテウスレンタカー.png"
+            src="/プルテウスレンタカー.webp"
             alt="プルテウスレンタカー"
             width={1200}
             height={800}
             className="w-full h-auto"
             priority
-            quality={30}
+            quality={85}
             placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAEDQIHXG8LNAAAAABJRU5ErkJggg=="
+            blurDataURL="data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoBAAEALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="eager"
           />
         </div>
 
