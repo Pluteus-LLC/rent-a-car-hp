@@ -31,7 +31,8 @@ export default function Home() {
       {/* Main Content */}
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h2 className="text-2xl text-gray-600 dark:text-gray-300 mb-8">レンタカーの事前のご相談、最新の情報は<a className="text-blue-600 font-bold" href="https://x.com/pluteusrentacar"> 公式X(旧Twitter)</a> にて</h2>
+          <h2 className="text-2xl text-gray-600 dark:text-gray-300 mb-4">レンタカーの事前のご相談、最新の情報は<a className="text-blue-600 font-bold" href="https://x.com/pluteusrentacar"> 公式X(旧Twitter)</a> にて</h2>
+          <p className="text-xl text-gray-700 dark:text-gray-300 font-semibold">プルテウスレンタカーは、「福岡県、北海道」で貸出中！</p>
         </div>
 
         {/* Main Image */}
@@ -47,6 +48,25 @@ export default function Home() {
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAEDQIHXG8LNAAAAABJRU5ErkJggg=="
           />
+        </div>
+
+        {/* Available Vehicles/Locations Section */}
+        <div className="mb-12 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mt-16">
+          <h3 className="text-xl font-bold text-center mb-6 text-gray-900 dark:text-white">プルテウスレンタカーのレンタル可能車両/事業所</h3>
+          <div className="space-y-6">
+            <div className="text-center">
+              <div className="inline-block bg-yellow-100 dark:bg-yellow-900 px-4 py-2 rounded-lg mb-2">
+                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">⭐︎福岡県(福津市)⭐︎</h4>
+              </div>
+              <p className="text-gray-700 dark:text-gray-300">Model Y [料金:Aクラス]</p>
+            </div>
+            <div className="text-center">
+              <div className="inline-block bg-blue-100 dark:bg-blue-900 px-4 py-2 rounded-lg mb-2">
+                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">⭐︎北海道(安平町)⭐︎</h4>
+              </div>
+              <p className="text-gray-700 dark:text-gray-300">Model 3 [料金:Bクラス]</p>
+            </div>
+          </div>
         </div>
 
         {/* Pricing Section */}
@@ -130,6 +150,7 @@ export default function Home() {
                 <li>営業所から半径30km以内の範囲・・・ 3,000円</li>
                 <li>営業所から30km以上の超過1kmあたり100円</li>
               </ul>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 italic">※片道単位</p>
             </div>
           </div>
         </div>
