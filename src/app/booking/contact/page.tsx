@@ -316,6 +316,7 @@ function ContactPageContent() {
                       value={startDate}
                       onChange={(value) => setStartDate(value)}
                       format="YYYY/MM/DD"
+                      inputReadOnly
                       disabledDate={(current) => {
                         return current && current < dayjs().startOf('day');
                       }}
@@ -343,6 +344,7 @@ function ContactPageContent() {
                       value={endDate}
                       onChange={(value) => setEndDate(value)}
                       format="YYYY/MM/DD"
+                      inputReadOnly
                       disabledDate={(current) => {
                         if (!startDate) return current && current < dayjs().startOf('day');
                         return current && current < startDate.startOf('day');
@@ -476,12 +478,16 @@ function ContactPageContent() {
                 {(airportPickup || fukuokaPickupLocation || pickupRequest) && (
                   <div className="flex justify-between py-1">
                     <span className="text-gray-600">オプション</span>
-                    <span className="font-semibold text-gray-900 text-sm">
-                      {airportPickup && '新千歳空港送迎'}
-                      {fukuokaPickupLocation && fukuokaPickupLocation}
-                      {(airportPickup || fukuokaPickupLocation) && pickupRequest && '、'}
-                      {pickupRequest && '送迎希望'}
-                    </span>
+                    <div className="font-semibold text-gray-900 text-sm text-right">
+                      {airportPickup && <div>新千歳空港送迎</div>}
+                      {fukuokaPickupLocation && <div>{fukuokaPickupLocation}</div>}
+                      {pickupRequest && (
+                        <div>
+                          送迎希望
+                          {pickupLocation && <div className="text-xs font-normal text-gray-600 mt-1">({pickupLocation})</div>}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 )}
               </div>

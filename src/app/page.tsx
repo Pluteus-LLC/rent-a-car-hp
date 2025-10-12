@@ -56,59 +56,44 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Available Locations */}
-        <div className="mb-24">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">レンタル可能事業所</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6 text-center">
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">福岡県(福津市)</h4>
-              <p className="text-gray-600 dark:text-gray-400">Model Y</p>
-            </div>
-            <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6 text-center">
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">北海道(安平町)</h4>
-              <p className="text-gray-600 dark:text-gray-400">Model 3</p>
-            </div>
-          </div>
-        </div>
-
         {/* Pricing Section */}
         <div id="pricing" className="mb-24">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">料金表{'\u2009'}<span className="text-sm">全て税込み</span></h2>
 
           <div className="overflow-x-auto mb-8">
-            <table className="w-full border-collapse">
+            <table className="w-full border-collapse min-w-[600px]">
               <thead>
                 <tr className="border-b-2 border-gray-300 dark:border-gray-700">
-                  <th className="py-4 px-4 text-left text-xl text-gray-900 dark:text-white">クラス</th>
-                  <th className="py-4 px-4 text-center text-xl text-gray-900 dark:text-white number font-normal">3<span className="text-sm">{'\u2009'}時間</span></th>
-                  <th className="py-4 px-4 text-center text-xl text-gray-900 dark:text-white number font-normal">6<span className="text-sm">{'\u2009'}時間</span></th>
-                  <th className="py-4 px-4 text-center text-xl text-gray-900 dark:text-white number font-normal">6<span className="text-sm">{'\u2009'}時間以降</span><br/>1<span className="text-sm">{'\u2009'}時間毎</span></th>
-                  <th className="py-4 px-4 text-center text-sm text-orange-500 dark:text-white number font-normal">超過料金<br/><span className="text-xl number">1</span><span className="text-sm">{'\u2009'}時間毎</span></th>
-                  <th className="py-4 px-4 text-center text-sm text-orange-500 dark:text-white number font-normal">超過料金<br/><span className="text-xl number">1</span><span className="text-sm">{'\u2009'}日毎</span></th>
+                  <th className="py-4 px-1 text-left text-xl text-gray-900 dark:text-white whitespace-nowrap sticky left-0 bg-white dark:bg-gray-900 z-10"></th>
+                  <th className="py-4 px-1 text-center text-xl text-gray-900 dark:text-white number font-normal whitespace-nowrap">3<span className="text-sm">{'\u2009'}時間</span></th>
+                  <th className="py-4 px-1 text-center text-xl text-gray-900 dark:text-white number font-normal whitespace-nowrap">6<span className="text-sm">{'\u2009'}時間</span></th>
+                  <th className="py-4 px-1 text-center text-sm text-gray-900 dark:text-white number font-normal whitespace-nowrap">6<span className="text-sm">{'\u2009'}時間以降</span><br/><span className="text-xl number">1</span><span className="text-sm">{'\u2009'}時間毎</span></th>
+                  <th className="py-4 px-1 text-center text-sm text-orange-500 dark:text-white number font-normal whitespace-nowrap">超過<br/><span className="text-xl number">1</span><span className="text-sm">{'\u2009'}時間毎</span></th>
+                  <th className="py-4 px-1 text-center text-sm text-orange-500 dark:text-white number font-normal whitespace-nowrap">超過<br/><span className="text-xl number">1</span><span className="text-sm">{'\u2009'}日毎</span></th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-gray-200 dark:border-gray-800">
-                  <td className="py-4 px-4">
-                    <div className="font-semibold text-gray-900 dark:text-white">北海道安平市</div>
+                  <td className="py-4 px-1 sticky left-0 bg-white dark:bg-gray-900 z-10" style={{"width": "60px"}}>
+                    <div className="font-semibold text-gray-900 dark:text-white">北海道</div>
                     <div className="text-xs text-gray-500 dark:text-gray-400">Model 3</div>
                   </td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">5,500<span className="text-[10px]">{'\u2009'}円</span></td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">8,800<span className="text-[10px]">{'\u2009'}円</span></td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">880<span className="text-[10px]">{'\u2009'}円</span></td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">1,320<span className="text-[10px]">{'\u2009'}円</span></td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">31,680<span className="text-[10px]">{'\u2009'}円</span></td>
+                  <td className="py-4 px-1 text-center text-gray-900 dark:text-white text-2xl">5,500<span className="text-sm">{'\u2009'}円</span></td>
+                  <td className="py-4 px-1 text-center text-gray-900 dark:text-white text-2xl">8,800<span className="text-sm">{'\u2009'}円</span></td>
+                  <td className="py-4 px-1 text-center text-gray-900 dark:text-white text-2xl">880<span className="text-sm">{'\u2009'}円</span></td>
+                  <td className="py-4 px-1 text-center text-gray-900 dark:text-white text-2xl">1,320<span className="text-sm">{'\u2009'}円</span></td>
+                  <td className="py-4 px-1 text-center text-gray-900 dark:text-white text-2xl">31,680<span className="text-sm">{'\u2009'}円</span></td>
                 </tr>
                 <tr className="border-b border-gray-200 dark:border-gray-800">
-                  <td className="py-4 px-4">
-                    <div className="font-semibold text-gray-900 dark:text-white">福岡県福津市</div>
+                  <td className="py-4 px-1 sticky left-0 bg-white dark:bg-gray-900 z-10" style={{"width": "60px"}}>
+                    <div className="font-semibold text-gray-900 dark:text-white">福岡県</div>
                     <div className="text-xs text-gray-500 dark:text-gray-400">Model Y</div>
                   </td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">6,600<span className="text-[10px]">{'\u2009'}円</span></td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">10,560<span className="text-[10px]">{'\u2009'}円</span></td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">1,100<span className="text-[10px]">{'\u2009'}円</span></td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">1,650<span className="text-[10px]">{'\u2009'}円</span></td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">39,600<span className="text-[10px]">{'\u2009'}円</span></td>
+                  <td className="py-4 px-1 text-center text-gray-900 dark:text-white text-2xl">6,600<span className="text-sm">{'\u2009'}円</span></td>
+                  <td className="py-4 px-1 text-center text-gray-900 dark:text-white text-2xl">10,560<span className="text-sm">{'\u2009'}円</span></td>
+                  <td className="py-4 px-1 text-center text-gray-900 dark:text-white text-2xl">1,100<span className="text-sm">{'\u2009'}円</span></td>
+                  <td className="py-4 px-1 text-center text-gray-900 dark:text-white text-2xl">1,650<span className="text-sm">{'\u2009'}円</span></td>
+                  <td className="py-4 px-1 text-center text-gray-900 dark:text-white text-2xl">39,600<span className="text-sm">{'\u2009'}円</span></td>
                 </tr>
 
               </tbody>
@@ -138,8 +123,8 @@ export default function Home() {
             <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
               <h4 className="font-semibold text-gray-900 dark:text-white mb-3">車両の配達（配車引取料）</h4>
               <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                <li>• 営業所から半径30km以内：3,000<span className="text-[10px]">{'\u2009'}円</span></li>
-                <li>• 30km以上：超過1kmあたり100<span className="text-[10px]">{'\u2009'}円</span></li>
+                <li>• 営業所から半径30km以内：3,000<span className="text-[10px]">{'\u2009'}円(税込)</span></li>
+                <li>• 30km以上：超過1kmあたり100<span className="text-[10px]">{'\u2009'}円(税込)</span></li>
               </ul>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">※片道単位</p>
             </div>

@@ -7,6 +7,7 @@ import 'dayjs/locale/ja';
 import locale from 'antd/locale/ja_JP';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 dayjs.locale('ja');
 
@@ -207,12 +208,16 @@ export default function BookingPage() {
           </p>
         </a>
 
-        {/* Header */}
-        <header className="fixed top-10 left-0 right-0 z-50 bg-white border-b border-gray-200">
+        <header className="fixed top-10 left-0 right-0 z-50 bg-white">
           <div className="max-w-7xl mx-auto px-6 py-3">
             <div className="flex justify-between items-center">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900" style={{ margin: 0 }}>
+                <h1 className="hidden md:block text-2xl font-bold text-gray-900" style={{ margin: 0 }}>
+                  <span className="text-sm">北海道と福岡のテスラレンタカー</span><br />
+                  プルテウスレンタカー
+                </h1>
+                <h1 className="text-sm font-bold text-gray-900 md:hidden" style={{ margin: 0 }}>
+                  <span style={{fontSize: '8px'}}>北海道と福岡のテスラレンタカー</span><br />
                   プルテウスレンタカー
                 </h1>
               </div>
@@ -220,7 +225,7 @@ export default function BookingPage() {
                 <nav className="flex gap-6 items-center">
                   <a
                     href="#booking"
-                    className="text-gray-600 hover:text-gray-900 transition font-semibold"
+                    className="hidden md:block text-gray-600 hover:text-gray-900 transition font-semibold"
                   >
                     予約
                   </a>
@@ -340,7 +345,6 @@ export default function BookingPage() {
                     <div className="font-bold mb-1">北海道</div>
                     <div className="text-xs font-normal">安平町</div>
                     <div className="text-xs font-normal">Model 3</div>
-                    <div className="text-xs font-normal"> (北海道旅行におすすめ)</div>
                   </button>
                   <button
                     type="button"
@@ -394,10 +398,12 @@ export default function BookingPage() {
                   <DatePicker
                     size="large"
                     className="w-full"
+                    style={{ height: 40 }}
                     placeholder="開始日"
                     value={startDate}
                     onChange={(value) => setStartDate(value)}
                     format="YYYY/MM/DD"
+                    inputReadOnly
                     disabledDate={(current) => {
                       return current && current < dayjs().startOf('day');
                     }}
@@ -405,6 +411,7 @@ export default function BookingPage() {
                   <Select
                     size="large"
                     className="w-full"
+                    style={{ height: 40 }}
                     placeholder="開始時刻"
                     value={startTime || undefined}
                     onChange={(value) => setStartTime(value)}
@@ -421,10 +428,12 @@ export default function BookingPage() {
                   <DatePicker
                     size="large"
                     className="w-full"
+                    style={{ height: 40 }}
                     placeholder="終了日"
                     value={endDate}
                     onChange={(value) => setEndDate(value)}
                     format="YYYY/MM/DD"
+                    inputReadOnly
                     disabledDate={(current) => {
                       if (!startDate) return current && current < dayjs().startOf('day');
                       return current && current < startDate.startOf('day');
@@ -433,6 +442,7 @@ export default function BookingPage() {
                   <Select
                     size="large"
                     className="w-full"
+                    style={{ height: 40 }}
                     placeholder="終了時刻"
                     value={endTime || undefined}
                     onChange={(value) => setEndTime(value)}
@@ -670,7 +680,7 @@ export default function BookingPage() {
                   {displayPrice !== null ? (
                     <>
                       {displayPrice.toLocaleString()}
-                      <span className="text-sm">{'\u2009'}円（税込）</span>
+                      <span className="text-gray-500 text-sm">{'\u2009'}円 (税込)</span>
                     </>
                   ) : (
                     'ー'
