@@ -220,7 +220,7 @@ export default function BookingPage() {
                 <nav className="flex gap-6 items-center">
                   <a
                     href="#booking"
-                    className="text-orange-500 hover:text-orange-600 transition font-semibold"
+                    className="text-gray-600 hover:text-gray-900 transition font-semibold"
                   >
                     予約
                   </a>
