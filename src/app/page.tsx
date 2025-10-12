@@ -60,7 +60,7 @@ export default function Home() {
         </div>
 
         {/* Pricing Section */}
-        <div id="pricing" className="mb-24">
+        <div id="pricing" className="mb-24" style={{ scrollMarginTop: '120px' }}>
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">料金表{'\u2009'}<span className="text-sm">全て税込み</span></h2>
 
           <div className="overflow-x-auto mb-8">

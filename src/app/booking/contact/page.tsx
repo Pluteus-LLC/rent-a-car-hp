@@ -363,15 +363,15 @@ function ContactPageContent() {
               <div className="space-y-4">
                 {/* 営業所 */}
                 <div>
-                  <label className="block text-sm font-semibold mb-2 text-gray-900">営業所</label>
+                  <label className="block text-sm font-semibold mb-2 text-gray-900 dark:text-white">営業所</label>
                   <div className="grid grid-cols-2 gap-2">
                     <button
                       type="button"
                       onClick={() => setLocation('北海道')}
                       className={`py-2 px-3 rounded-lg border-2 transition-all font-semibold text-xs ${
                         location === '北海道'
-                          ? 'border-orange-500 bg-orange-50 text-orange-700'
-                          : 'border-gray-300 bg-white text-gray-700 hover:border-orange-300'
+                          ? 'border-orange-500 bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-300'
+                          : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-orange-300 dark:hover:border-orange-600'
                       }`}
                     >
                       北海道（安平町）
@@ -381,8 +381,8 @@ function ContactPageContent() {
                       onClick={() => setLocation('福岡')}
                       className={`py-2 px-3 rounded-lg border-2 transition-all font-semibold text-xs ${
                         location === '福岡'
-                          ? 'border-orange-500 bg-orange-50 text-orange-700'
-                          : 'border-gray-300 bg-white text-gray-700 hover:border-orange-300'
+                          ? 'border-orange-500 bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-300'
+                          : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-orange-300 dark:hover:border-orange-600'
                       }`}
                     >
                       福岡（福津市）
@@ -392,7 +392,7 @@ function ContactPageContent() {
 
                 {/* 貸出日時 */}
                 <div>
-                  <label className="block text-sm font-semibold mb-2 text-gray-900">貸出日時</label>
+                  <label className="block text-sm font-semibold mb-2 text-gray-900 dark:text-white">貸出日時</label>
                   <div className="grid grid-cols-2 gap-2">
                     <DatePicker
                       size="large"
@@ -419,7 +419,7 @@ function ContactPageContent() {
 
                 {/* 返却日時 */}
                 <div>
-                  <label className="block text-sm font-semibold mb-2 text-gray-900">返却日時</label>
+                  <label className="block text-sm font-semibold mb-2 text-gray-900 dark:text-white">返却日時</label>
                   <div className="grid grid-cols-2 gap-2">
                     <DatePicker
                       size="large"
@@ -455,7 +455,7 @@ function ContactPageContent() {
                         if (e.target.checked) setPickupRequest(false);
                       }}
                     >
-                      <span className="text-sm font-semibold text-gray-900">
+                      <span className="text-sm font-semibold text-gray-900 dark:text-white">
                         新千歳空港からの送迎（片道3,000<span className="text-[10px]">{'\u2009'}円（税込）</span>）
                       </span>
                     </Checkbox>
@@ -463,7 +463,7 @@ function ContactPageContent() {
 
                   {location === '福岡' && (
                     <div>
-                      <p className="text-sm font-semibold text-gray-900 mb-2">主要箇所からの送迎（片道3,000<span className="text-[10px]">{'\u2009'}円（税込）</span>）</p>
+                      <p className="text-sm font-semibold text-gray-900 dark:text-white mb-2">主要箇所からの送迎（片道3,000<span className="text-[10px]">{'\u2009'}円（税込）</span>）</p>
                       <div className="space-y-1 pl-4">
                         <div>
                           <Checkbox
@@ -473,7 +473,7 @@ function ContactPageContent() {
                               if (e.target.checked) setPickupRequest(false);
                             }}
                           >
-                            <span className="text-xs text-gray-900">福岡空港</span>
+                            <span className="text-xs text-gray-900 dark:text-white">福岡空港</span>
                           </Checkbox>
                         </div>
                         <div>
@@ -484,7 +484,7 @@ function ContactPageContent() {
                               if (e.target.checked) setPickupRequest(false);
                             }}
                           >
-                            <span className="text-xs text-gray-900">博多駅</span>
+                            <span className="text-xs text-gray-900 dark:text-white">博多駅</span>
                           </Checkbox>
                         </div>
                         <div>
@@ -495,7 +495,7 @@ function ContactPageContent() {
                               if (e.target.checked) setPickupRequest(false);
                             }}
                           >
-                            <span className="text-xs text-gray-900">西鉄天神高速バスターミナル</span>
+                            <span className="text-xs text-gray-900 dark:text-white">西鉄天神高速バスターミナル</span>
                           </Checkbox>
                         </div>
                       </div>
@@ -514,9 +514,9 @@ function ContactPageContent() {
                       }
                     }}
                   >
-                    <div className="text-sm font-semibold text-gray-900">
+                    <div className="text-sm font-semibold text-gray-900 dark:text-white">
                       送迎希望（上記主要箇所以外）
-                      <div className="text-xs text-gray-600 font-normal mt-1">
+                      <div className="text-xs text-gray-600 dark:text-gray-400 font-normal mt-1">
                         • 営業所から半径30km以内：3,000<span className="text-[10px]">{'\u2009'}円</span>（税込）<br/>
                         • 30km以上：超過1kmあたり100<span className="text-[10px]">{'\u2009'}円</span>（税込）
                       </div>
@@ -529,7 +529,7 @@ function ContactPageContent() {
                         value={pickupLocation}
                         onChange={(e) => setPickupLocation(e.target.value)}
                         placeholder="送迎希望場所を入力してください"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden dark:bg-gray-800 dark:text-white"
                       />
                     </div>
                   )}
