@@ -415,7 +415,6 @@ export default function BookingPage() {
                     value={startTime || undefined}
                     onChange={(value) => setStartTime(value)}
                     options={timeOptions}
-                    showSearch
                   />
                 </div>
               </div>
@@ -446,7 +445,6 @@ export default function BookingPage() {
                     value={endTime || undefined}
                     onChange={(value) => setEndTime(value)}
                     options={timeOptions}
-                    showSearch
                   />
                 </div>
               </div>
@@ -536,7 +534,7 @@ export default function BookingPage() {
                         value={pickupLocation}
                         onChange={(e) => setPickupLocation(e.target.value)}
                         placeholder="送迎希望場所を入力してください"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden"
                       />
                     </div>
                   )}

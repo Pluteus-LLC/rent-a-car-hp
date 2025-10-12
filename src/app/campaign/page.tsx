@@ -23,12 +23,9 @@ export default function CampaignPage() {
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-6 py-12">
         {/* Campaign Banner */}
-        <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-2xl p-8 mb-12 text-center shadow-xl">
-          <p className="text-2xl md:text-3xl font-bold mb-2">
-            利用後購入キャンペーン実施中！
-          </p>
-          <p className="text-lg md:text-xl opacity-90">
-            2025年12月31日まで
+        <div className="bg-orange-100 border-2 border-orange-300 rounded-2xl p-6 mb-12 text-center shadow-md">
+          <p className="text-xl md:text-2xl font-bold text-gray-900">
+            利用後購入キャンペーン実施中！ <span className="text-base md:text-lg font-normal text-gray-700">（2025年12月31日まで）</span>
           </p>
         </div>
 

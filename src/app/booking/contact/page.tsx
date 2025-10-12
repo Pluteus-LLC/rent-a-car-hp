@@ -72,6 +72,8 @@ function ContactPageContent() {
   const [displayPrice, setDisplayPrice] = useState<number | null>(null);
   const [duration, setDuration] = useState<{ days: number; hours: number } | null>(null);
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [contactValueError, setContactValueError] = useState<string>('');
+  const [phoneNumberError, setPhoneNumberError] = useState<string>('');
 
   // URLパラメータから予約情報を取得
   useEffect(() => {
@@ -167,7 +169,90 @@ function ContactPageContent() {
     return () => clearInterval(timer);
   }, [price]);
 
-  const handleContactSubmit = () => {
+  // バリデーション関数
+  const validateContactInfo = () => {
+    // エラーをリセット
+    setContactValueError('');
+    setPhoneNumberError('');
+
+    let isValid = true;
+
+    // メールアドレスのバリデーション
+    if (contactMethod === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(contactValue)) {
+        setContactValueError('有効なメールアドレスを入力してください');
+        isValid = false;
+      }
+    }
+
+    // 電話番号のバリデーション（9-11個の数字）
+    const phoneDigits = phoneNumber.replace(/\D/g, ''); // 数字以外を除去
+    if (phoneDigits.length < 9 || phoneDigits.length > 11) {
+      setPhoneNumberError('電話番号は9桁から11桁の数字で入力してください');
+      isValid = false;
+    }
+
+    return isValid;
+  };
+
+  const handleContactSubmit = async () => {
+    // バリデーションチェック
+    if (!validateContactInfo()) {
+      return;
+    }
+
+    // Google Formに送信
+    try {
+      const formData = new URLSearchParams();
+
+      // entry.909150629: SNSのID または メールアドレス
+      formData.append('entry.909150629', contactValue);
+
+      // entry.303983299: 名前
+      formData.append('entry.303983299', customerName);
+
+      // entry.224606125: 電話番号
+      formData.append('entry.224606125', phoneNumber);
+
+      // entry.522302925: 希望のエリア
+      formData.append('entry.522302925', location === '北海道' ? '北海道（安平町）' : '福岡（福津市）');
+
+      // entry.2071702890: 利用開始日
+      formData.append('entry.2071702890', `${startDate?.format('YYYY/MM/DD')} ${startTime}`);
+
+      // entry.928348117: メールアドレスか、Twitter / Instagramか
+      const contactMethodText = contactMethod === 'email' ? 'メールアドレス' : contactMethod === 'x' ? 'Twitter' : 'Instagram';
+      formData.append('entry.928348117', contactMethodText);
+
+      // entry.114282046: 送迎の備考
+      let pickupNote = '';
+      if (airportPickup) pickupNote += '新千歳空港送迎 ';
+      if (fukuokaPickupLocation) pickupNote += fukuokaPickupLocation + ' ';
+      if (pickupRequest && pickupLocation) pickupNote += `送迎希望: ${pickupLocation}`;
+      formData.append('entry.114282046', pickupNote.trim());
+
+      // entry.201391885: 返却日
+      formData.append('entry.201391885', `${endDate?.format('YYYY/MM/DD')} ${endTime}`);
+
+      // entry.228251123: webで表示した概算の金額
+      formData.append('entry.228251123', price ? `${price.toLocaleString()}円` : '');
+
+      // Google Formに送信
+      await fetch(
+        'https://docs.google.com/forms/d/e/1FAIpQLSeuwL0z1tNt94Z3PcAu1Gj-FseKaOvEmcMDScNu4bu7qvA4yg/formResponse',
+        {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors', // CORSエラーを回避
+        }
+      );
+    } catch (error) {
+      console.error('Google Form送信エラー:', error);
+      // エラーが発生してもユーザーには確認画面を表示
+    }
+
+    // 確認画面に遷移
     setStep('confirmed');
   };
 
@@ -258,7 +343,7 @@ function ContactPageContent() {
           </div>
 
           {/* 右側：予約情報と連絡先フォーム (1/3幅) */}
-          <div className="overflow-y-auto p-4 md:pl-8 md:pr-2 md:py-3 order-1 md:order-2 bg-white">
+          <div className="overflow-y-auto p-4 md:pl-4 lg:pr-12 md:py-3 order-1 md:order-2 bg-white">
             <div className="space-y-6">
             <div style={{"margin": "0"}}>
             <div className="flex justify-between items-center mb-4">
@@ -328,7 +413,6 @@ function ContactPageContent() {
                       value={startTime || undefined}
                       onChange={(value) => setStartTime(value)}
                       options={timeOptions}
-                      showSearch
                     />
                   </div>
                 </div>
@@ -357,7 +441,6 @@ function ContactPageContent() {
                       value={endTime || undefined}
                       onChange={(value) => setEndTime(value)}
                       options={timeOptions}
-                      showSearch
                     />
                   </div>
                 </div>
@@ -446,7 +529,7 @@ function ContactPageContent() {
                         value={pickupLocation}
                         onChange={(e) => setPickupLocation(e.target.value)}
                         placeholder="送迎希望場所を入力してください"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden"
                       />
                     </div>
                   )}
@@ -542,7 +625,7 @@ function ContactPageContent() {
                 <button
                   type="button"
                   onClick={() => setContactMethod('instagram')}
-                  className={`py-3 px-4 rounded-lg border-2 transition-all font-semibold text-sm ${
+                  className={`py-3 rounded-lg border-2 transition-all font-semibold text-sm ${
                     contactMethod === 'instagram'
                       ? 'border-orange-500 bg-orange-50 text-orange-700'
                       : 'border-gray-300 bg-white text-gray-700 hover:border-orange-300'
@@ -560,7 +643,10 @@ function ContactPageContent() {
               <input
                 type={contactMethod === 'email' ? 'email' : 'text'}
                 value={contactValue}
-                onChange={(e) => setContactValue(e.target.value)}
+                onChange={(e) => {
+                  setContactValue(e.target.value);
+                  if (contactValueError) setContactValueError('');
+                }}
                 placeholder={
                   contactMethod === 'email'
                     ? 'example@email.com'
@@ -568,8 +654,13 @@ function ContactPageContent() {
                       ? '@username'
                       : '@username'
                 }
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden ${
+                  contactValueError ? 'border-red-500' : 'border-gray-300'
+                }`}
               />
+              {contactValueError && (
+                <p className="mt-1 text-sm text-red-600">{contactValueError}</p>
+              )}
             </div>
 
             <div>
@@ -579,7 +670,7 @@ function ContactPageContent() {
                 value={customerName}
                 onChange={(e) => setCustomerName(e.target.value)}
                 placeholder="山田 太郎"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden"
               />
             </div>
 
@@ -588,10 +679,18 @@ function ContactPageContent() {
               <input
                 type="tel"
                 value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                onChange={(e) => {
+                  setPhoneNumber(e.target.value);
+                  if (phoneNumberError) setPhoneNumberError('');
+                }}
                 placeholder="090-1234-5678"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden ${
+                  phoneNumberError ? 'border-red-500' : 'border-gray-300'
+                }`}
               />
+              {phoneNumberError && (
+                <p className="mt-1 text-sm text-red-600">{phoneNumberError}</p>
+              )}
             </div>
 
             <div className="flex gap-3 pt-4">
