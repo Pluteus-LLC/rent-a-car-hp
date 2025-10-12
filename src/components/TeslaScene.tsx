@@ -115,7 +115,6 @@ function TeslaCar({
 
         // Easing
         const easeOutCubic   = (t: number) => 1 - Math.pow(1 - t, 3);
-        const easeInOutQuad  = (t: number) => (t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2);
         const easeInCubic = (t: number) => t * t * t * 6;
         // ダンピング係数
         const damp = (lambda: number) => 1 - Math.pow(1 - lambda, delta * 60);
@@ -136,8 +135,6 @@ function TeslaCar({
 
             } else if (progress < split1 + split2) {
                 // フェーズ2: 角でその場90°右回り (+π/2 → 0)
-                const local = (progress - split1) / split2;
-                const t = easeInOutQuad(local);
                 targetPosition.copy(cornerPos); // 据え置き
                 targetRotationY = endYaw;
             } else {
@@ -148,8 +145,8 @@ function TeslaCar({
                 targetRotationY = endYaw;
             }
 
-            // 完了時に parked へ。ターゲットは同一(endPos)なので“もう一段階”が発生しない
-            if (progress >= 1 && (animationStateLocal !== 'parked-right' || animationStateLocal !== 'parked-center')) {
+            // 完了時に parked へ。ターゲットは同一(endPos)なので"もう一段階"が発生しない
+            if (progress >= 1) {
                 animationStateLocal = 'parked-right';
             }
         } else if (animationStateLocal === 'parked-right' || animationStateLocal === 'parked-center') {
@@ -188,7 +185,7 @@ function Scene({
   useFrame(() => {
     if (!cameraRef.current) return;
 
-    let targetPosition = new THREE.Vector3(-2, 1.5, 5);
+    const targetPosition = new THREE.Vector3(-2, 1.5, 5);
     let targetLookAt = new THREE.Vector3(2, 0, 0);
 
     if (animationState === 'parked-center') {

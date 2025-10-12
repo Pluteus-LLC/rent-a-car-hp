@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { Select, DatePicker, Button, Checkbox, ConfigProvider } from 'antd';
 import dayjs, { Dayjs } from 'dayjs';
 import 'dayjs/locale/ja';
@@ -50,7 +50,7 @@ const priceRates: Record<string, PriceRate> = {
   },
 };
 
-export default function ContactPage() {
+function ContactPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -547,5 +547,13 @@ export default function ContactPage() {
         </div>
       </div>
     </ConfigProvider>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ContactPageContent />
+    </Suspense>
   );
 }

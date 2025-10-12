@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function CampaignPage() {
   return (
     <div className="min-h-screen bg-white">
@@ -8,12 +10,12 @@ export default function CampaignPage() {
             <h1 className="text-xl md:text-2xl font-bold text-gray-900">
               プルテウスレンタカー
             </h1>
-            <a
+            <Link
               href="/"
               className="text-orange-500 hover:text-orange-600 transition font-semibold text-sm md:text-base"
             >
               ← 予約ページに戻る
-            </a>
+            </Link>
           </div>
         </div>
       </header>
@@ -36,7 +38,7 @@ export default function CampaignPage() {
             テスラ体験からテスラオーナーへ
           </h2>
           <p className="text-lg md:text-xl text-gray-700">
-            試乗車ではできない"テスラのある生活"体験キャンペーン
+            試乗車ではできない&quot;テスラのある生活&quot;体験キャンペーン
           </p>
         </div>
 
@@ -107,12 +109,12 @@ export default function CampaignPage() {
 
         {/* CTA Button */}
         <div className="mt-12 text-center">
-          <a
+          <Link
             href="/"
             className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-12 rounded-xl transition shadow-lg text-lg"
           >
             予約ページに戻る
-          </a>
+          </Link>
         </div>
       </main>
 

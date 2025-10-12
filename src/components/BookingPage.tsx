@@ -50,7 +50,7 @@ const priceRates: Record<string, PriceRate> = {
   },
 };
 
-export default function BookingPage({ showHomeLink = false }: { showHomeLink?: boolean }) {
+export default function BookingPage() {
   const router = useRouter();
   const [animationState, setAnimationState] = useState<AnimationState>('entering');
   const [location, setLocation] = useState<string>('');
