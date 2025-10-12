@@ -61,7 +61,9 @@ function ContactPageContent() {
   const [endDate, setEndDate] = useState<Dayjs | null>(null);
   const [endTime, setEndTime] = useState<string>('12:00');
   const [airportPickup, setAirportPickup] = useState<boolean>(false);
+  const [fukuokaPickupLocation, setFukuokaPickupLocation] = useState<string>('');
   const [pickupRequest, setPickupRequest] = useState<boolean>(false);
+  const [pickupLocation, setPickupLocation] = useState<string>('');
   const [contactMethod, setContactMethod] = useState<'x' | 'instagram' | 'email'>('email');
   const [contactValue, setContactValue] = useState<string>('');
   const [customerName, setCustomerName] = useState<string>('');
@@ -79,7 +81,9 @@ function ContactPageContent() {
     const end = searchParams.get('endDate');
     const eTime = searchParams.get('endTime');
     const airport = searchParams.get('airportPickup');
+    const fukuokaPickup = searchParams.get('fukuokaPickupLocation');
     const pickup = searchParams.get('pickupRequest');
+    const pickupLoc = searchParams.get('pickupLocation');
 
     if (loc) setLocation(loc);
     if (start) setStartDate(dayjs(start));
@@ -87,7 +91,9 @@ function ContactPageContent() {
     if (end) setEndDate(dayjs(end));
     if (eTime) setEndTime(eTime);
     if (airport) setAirportPickup(airport === 'true');
+    if (fukuokaPickup) setFukuokaPickupLocation(fukuokaPickup);
     if (pickup) setPickupRequest(pickup === 'true');
+    if (pickupLoc) setPickupLocation(pickupLoc);
   }, [searchParams]);
 
   // 価格計算
@@ -115,8 +121,8 @@ function ContactPageContent() {
           totalPrice = rates.sixHours + (totalHours - 6) * rates.additionalHour;
         }
 
-        if (airportPickup) {
-          totalPrice += 5000;
+        if (airportPickup || fukuokaPickupLocation) {
+          totalPrice += 3000;
         }
 
         setPrice(Math.round(totalPrice));
@@ -132,7 +138,7 @@ function ContactPageContent() {
       setPrice(null);
       setDuration(null);
     }
-  }, [location, startDate, startTime, endDate, endTime, airportPickup]);
+  }, [location, startDate, startTime, endDate, endTime, airportPickup, fukuokaPickupLocation]);
 
   // 価格アニメーション
   useEffect(() => {
@@ -261,7 +267,7 @@ function ContactPageContent() {
                 type="button"
                 onClick={() => setIsEditing(!isEditing)}
                 className="text-xs text-orange-500 hover:text-orange-600 font-nomal"
-                style={{"color": isEditing ? "#ea580c!important" : "#f97316!important"}}
+                style={{"color": isEditing ? "#ea580c!important" : "#f97316!important", "fontSize": "12px"}}
               >
                 {isEditing ? '完了' : '編集'}
               </button>
@@ -356,33 +362,92 @@ function ContactPageContent() {
 
                 {/* オプション */}
                 <div className="space-y-2">
-                  <Checkbox
-                    checked={airportPickup}
-                    onChange={(e) => setAirportPickup(e.target.checked)}
-                  >
-                    <span className="text-sm font-semibold text-gray-900">
-                      {location === '北海道' ? (
-                        <>
-                          新千歳空港からの送迎（5,000<span className="text-[10px]">{'\u2009'}円</span>）
-                        </>
-                      ) : location === '福岡' ? (
-                        <>
-                          福岡空港からの送迎（5,000<span className="text-[10px]">{'\u2009'}円</span>）
-                        </>
-                      ) : (
-                        <>
-                          空港送迎（5,000<span className="text-[10px]">{'\u2009'}円</span>）
-                        </>
-                      )}
-                    </span>
-                  </Checkbox>
+                  {location === '北海道' && (
+                    <Checkbox
+                      checked={airportPickup}
+                      onChange={(e) => {
+                        setAirportPickup(e.target.checked);
+                        if (e.target.checked) setPickupRequest(false);
+                      }}
+                    >
+                      <span className="text-sm font-semibold text-gray-900">
+                        新千歳空港からの送迎（片道3,000<span className="text-[10px]">{'\u2009'}円（税込）</span>）
+                      </span>
+                    </Checkbox>
+                  )}
+
+                  {location === '福岡' && (
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900 mb-2">主要箇所からの送迎（片道3,000<span className="text-[10px]">{'\u2009'}円（税込）</span>）</p>
+                      <div className="space-y-1 pl-4">
+                        <div>
+                          <Checkbox
+                            checked={fukuokaPickupLocation === '福岡空港'}
+                            onChange={(e) => {
+                              setFukuokaPickupLocation(e.target.checked ? '福岡空港' : '');
+                              if (e.target.checked) setPickupRequest(false);
+                            }}
+                          >
+                            <span className="text-xs text-gray-900">福岡空港</span>
+                          </Checkbox>
+                        </div>
+                        <div>
+                          <Checkbox
+                            checked={fukuokaPickupLocation === '博多駅'}
+                            onChange={(e) => {
+                              setFukuokaPickupLocation(e.target.checked ? '博多駅' : '');
+                              if (e.target.checked) setPickupRequest(false);
+                            }}
+                          >
+                            <span className="text-xs text-gray-900">博多駅</span>
+                          </Checkbox>
+                        </div>
+                        <div>
+                          <Checkbox
+                            checked={fukuokaPickupLocation === '西鉄天神高速バスターミナル'}
+                            onChange={(e) => {
+                              setFukuokaPickupLocation(e.target.checked ? '西鉄天神高速バスターミナル' : '');
+                              if (e.target.checked) setPickupRequest(false);
+                            }}
+                          >
+                            <span className="text-xs text-gray-900">西鉄天神高速バスターミナル</span>
+                          </Checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   <Checkbox
                     checked={pickupRequest}
-                    onChange={(e) => setPickupRequest(e.target.checked)}
+                    onChange={(e) => {
+                      setPickupRequest(e.target.checked);
+                      if (e.target.checked) {
+                        setFukuokaPickupLocation('');
+                        setAirportPickup(false);
+                      } else {
+                        setPickupLocation('');
+                      }
+                    }}
                   >
-                    <span className="text-sm font-semibold text-gray-900">送迎希望</span>
-                    <span className="text-xs text-gray-600 ml-1">(概算に含まれません)</span>
+                    <div className="text-sm font-semibold text-gray-900">
+                      送迎希望（上記主要箇所以外）
+                      <div className="text-xs text-gray-600 font-normal mt-1">
+                        • 営業所から半径30km以内：3,000<span className="text-[10px]">{'\u2009'}円</span>（税込）<br/>
+                        • 30km以上：超過1kmあたり100<span className="text-[10px]">{'\u2009'}円</span>（税込）
+                      </div>
+                    </div>
                   </Checkbox>
+                  {pickupRequest && (
+                    <div className="mt-2 pl-6">
+                      <input
+                        type="text"
+                        value={pickupLocation}
+                        onChange={(e) => setPickupLocation(e.target.value)}
+                        placeholder="送迎希望場所を入力してください"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             ) : (
@@ -408,12 +473,13 @@ function ContactPageContent() {
                     {endDate?.format('D')}<span className="text-xs font-normal">日</span> {endTime}
                   </span>
                 </div>
-                {(airportPickup || pickupRequest) && (
+                {(airportPickup || fukuokaPickupLocation || pickupRequest) && (
                   <div className="flex justify-between py-1">
                     <span className="text-gray-600">オプション</span>
                     <span className="font-semibold text-gray-900 text-sm">
-                      {airportPickup && (location === '北海道' ? '新千歳空港送迎' : '福岡空港送迎')}
-                      {airportPickup && pickupRequest && '、'}
+                      {airportPickup && '新千歳空港送迎'}
+                      {fukuokaPickupLocation && fukuokaPickupLocation}
+                      {(airportPickup || fukuokaPickupLocation) && pickupRequest && '、'}
                       {pickupRequest && '送迎希望'}
                     </span>
                   </div>
@@ -433,7 +499,7 @@ function ContactPageContent() {
                   </p>
                 </div>
                 <span className="text-2xl text-orange-500 font-nomal">
-                  {displayPrice?.toLocaleString()}<span className="text-base">{'\u2009'}円</span>
+                  {displayPrice?.toLocaleString()}<span className="text-base">{'\u2009'}円（税込）</span>
                 </span>
               </div>
             )}

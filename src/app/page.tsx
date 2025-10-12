@@ -62,65 +62,55 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6 text-center">
               <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">福岡県(福津市)</h4>
-              <p className="text-gray-600 dark:text-gray-400">Model Y [料金:Aクラス]</p>
+              <p className="text-gray-600 dark:text-gray-400">Model Y</p>
             </div>
             <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6 text-center">
               <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">北海道(安平町)</h4>
-              <p className="text-gray-600 dark:text-gray-400">Model 3 [料金:Bクラス]</p>
+              <p className="text-gray-600 dark:text-gray-400">Model 3</p>
             </div>
           </div>
         </div>
 
         {/* Pricing Section */}
         <div id="pricing" className="mb-24">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">料金表</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">料金表{'\u2009'}<span className="text-sm">全て税込み</span></h2>
 
           <div className="overflow-x-auto mb-8">
             <table className="w-full border-collapse">
               <thead>
                 <tr className="border-b-2 border-gray-300 dark:border-gray-700">
-                  <th className="py-4 px-4 text-left text-sm font-semibold text-gray-900 dark:text-white">クラス</th>
-                  <th className="py-4 px-4 text-center text-sm font-semibold text-gray-900 dark:text-white">３時間</th>
-                  <th className="py-4 px-4 text-center text-sm font-semibold text-gray-900 dark:text-white">６時間</th>
-                  <th className="py-4 px-4 text-center text-sm font-semibold text-gray-900 dark:text-white">6時間以降<br/>(1時間毎)</th>
-                  <th className="py-4 px-4 text-center text-sm font-semibold text-gray-900 dark:text-white">超過料金<br/>(１時間)</th>
-                  <th className="py-4 px-4 text-center text-sm font-semibold text-gray-900 dark:text-white">超過料金<br/>(１日)</th>
+                  <th className="py-4 px-4 text-left text-xl text-gray-900 dark:text-white">クラス</th>
+                  <th className="py-4 px-4 text-center text-xl text-gray-900 dark:text-white number font-normal">3<span className="text-sm">{'\u2009'}時間</span></th>
+                  <th className="py-4 px-4 text-center text-xl text-gray-900 dark:text-white number font-normal">6<span className="text-sm">{'\u2009'}時間</span></th>
+                  <th className="py-4 px-4 text-center text-xl text-gray-900 dark:text-white number font-normal">6<span className="text-sm">{'\u2009'}時間以降</span><br/>1<span className="text-sm">{'\u2009'}時間毎</span></th>
+                  <th className="py-4 px-4 text-center text-sm text-orange-500 dark:text-white number font-normal">超過料金<br/><span className="text-xl number">1</span><span className="text-sm">{'\u2009'}時間毎</span></th>
+                  <th className="py-4 px-4 text-center text-sm text-orange-500 dark:text-white number font-normal">超過料金<br/><span className="text-xl number">1</span><span className="text-sm">{'\u2009'}日毎</span></th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-gray-200 dark:border-gray-800">
                   <td className="py-4 px-4">
-                    <div className="font-semibold text-gray-900 dark:text-white">Bクラス</div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">Model 3 -2023・Model S -2017</div>
+                    <div className="font-semibold text-gray-900 dark:text-white">北海道安平市</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">Model 3</div>
                   </td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥5,500</td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥8,800</td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥880</td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥1,320</td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥31,680</td>
+                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">5,500<span className="text-[10px]">{'\u2009'}円</span></td>
+                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">8,800<span className="text-[10px]">{'\u2009'}円</span></td>
+                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">880<span className="text-[10px]">{'\u2009'}円</span></td>
+                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">1,320<span className="text-[10px]">{'\u2009'}円</span></td>
+                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">31,680<span className="text-[10px]">{'\u2009'}円</span></td>
                 </tr>
                 <tr className="border-b border-gray-200 dark:border-gray-800">
                   <td className="py-4 px-4">
-                    <div className="font-semibold text-gray-900 dark:text-white">Aクラス</div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">Model 3 2024-・Model Y</div>
+                    <div className="font-semibold text-gray-900 dark:text-white">福岡県福津市</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">Model Y</div>
                   </td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥6,600</td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥10,560</td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥1,100</td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥1,650</td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥39,600</td>
+                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">6,600<span className="text-[10px]">{'\u2009'}円</span></td>
+                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">10,560<span className="text-[10px]">{'\u2009'}円</span></td>
+                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">1,100<span className="text-[10px]">{'\u2009'}円</span></td>
+                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">1,650<span className="text-[10px]">{'\u2009'}円</span></td>
+                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">39,600<span className="text-[10px]">{'\u2009'}円</span></td>
                 </tr>
-                <tr className="border-b border-gray-200 dark:border-gray-800">
-                  <td className="py-4 px-4">
-                    <div className="font-semibold text-gray-900 dark:text-white">Sクラス</div>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">Model S,X</div>
-                  </td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥7,700</td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥12,320</td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥1,320</td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥1,980</td>
-                  <td className="py-4 px-4 text-center text-gray-900 dark:text-white">¥47,520</td>
-                </tr>
+
               </tbody>
             </table>
           </div>
@@ -141,15 +131,15 @@ export default function Home() {
             <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
               <h4 className="font-semibold text-gray-900 dark:text-white mb-3">ノンオペレーションチャージ（ＮＯＣ）</h4>
               <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                <li>• 自走可能な場合：¥33,000（税込）</li>
-                <li>• 自走不可の場合：¥55,000（税込）</li>
+                <li>• 自走可能な場合：33,000<span className="text-[10px]">{'\u2009'}円（税込）</span></li>
+                <li>• 自走不可の場合：55,000<span className="text-[10px]">{'\u2009'}円（税込）</span></li>
               </ul>
             </div>
             <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
               <h4 className="font-semibold text-gray-900 dark:text-white mb-3">車両の配達（配車引取料）</h4>
               <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                <li>• 営業所から半径30km以内：¥3,000</li>
-                <li>• 30km以上：超過1kmあたり¥100</li>
+                <li>• 営業所から半径30km以内：3,000<span className="text-[10px]">{'\u2009'}円</span></li>
+                <li>• 30km以上：超過1kmあたり100<span className="text-[10px]">{'\u2009'}円</span></li>
               </ul>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">※片道単位</p>
             </div>

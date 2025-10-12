@@ -62,7 +62,10 @@ export default function BookingPage() {
   const [displayPrice, setDisplayPrice] = useState<number | null>(null);
   const [duration, setDuration] = useState<{ days: number; hours: number } | null>(null);
   const [airportPickup, setAirportPickup] = useState<boolean>(false);
+  const [fukuokaPickupLocation, setFukuokaPickupLocation] = useState<string>('');
   const [pickupRequest, setPickupRequest] = useState<boolean>(false);
+  const [pickupLocation, setPickupLocation] = useState<string>('');
+  const [chargingStations, setChargingStations] = useState<number>(0);
 
   // 初回ロード時のアニメーション
   useEffect(() => {
@@ -99,6 +102,33 @@ export default function BookingPage() {
     return () => clearInterval(timer);
   }, [price]);
 
+  // 充電ステーション数のカウントアニメーション
+  useEffect(() => {
+    if (location === '北海道') {
+      const target = 1041;
+      const duration = 2000; // 2秒
+      const steps = 50;
+      const increment = target / steps;
+      let currentStep = 0;
+
+      setChargingStations(0);
+
+      const timer = setInterval(() => {
+        currentStep++;
+        if (currentStep >= steps) {
+          setChargingStations(target);
+          clearInterval(timer);
+        } else {
+          setChargingStations(Math.round(increment * currentStep));
+        }
+      }, duration / steps);
+
+      return () => clearInterval(timer);
+    } else {
+      setChargingStations(0);
+    }
+  }, [location]);
+
   // 価格計算
   useEffect(() => {
     if (location && startDate && startTime && endDate && endTime) {
@@ -128,8 +158,8 @@ export default function BookingPage() {
         }
 
         // 空港送迎オプションを追加
-        if (airportPickup) {
-          totalPrice += 5000;
+        if (airportPickup || fukuokaPickupLocation) {
+          totalPrice += 3000;
         }
 
         setPrice(Math.round(totalPrice));
@@ -145,7 +175,7 @@ export default function BookingPage() {
       setPrice(null);
       setDuration(null);
     }
-  }, [location, startDate, startTime, endDate, endTime, airportPickup]);
+  }, [location, startDate, startTime, endDate, endTime, airportPickup, fukuokaPickupLocation]);
 
   const handleReservation = () => {
     const params = new URLSearchParams({
@@ -155,7 +185,9 @@ export default function BookingPage() {
       endDate: endDate?.format('YYYY-MM-DD') || '',
       endTime: endTime,
       airportPickup: airportPickup.toString(),
+      fukuokaPickupLocation: fukuokaPickupLocation,
       pickupRequest: pickupRequest.toString(),
+      pickupLocation: pickupLocation,
     });
     router.push(`/booking/contact?${params.toString()}`);
   };
@@ -411,36 +443,127 @@ export default function BookingPage() {
               </div>
 
               <div className="mb-6 space-y-3">
-              <Checkbox
-                  checked={airportPickup}
-                  onChange={(e) => setAirportPickup(e.target.checked)}
-              >
-                  <span className="font-semibold text-gray-900">
-                    {location === '北海道' ? (
-                      <>
-                        新千歳空港からの送迎<span className="text-xs text-gray-600"> (5,000<span className="text-[10px]">{'\u2009'}円</span>)</span>
-                      </>
-                    ) : location === '福岡' ? (
-                      <>
-                        福岡空港からの送迎<span className="text-xs text-gray-600"> (5,000<span className="text-[10px]">{'\u2009'}円</span>)</span>
-                      </>
-                    ) : (
-                      <>
-                        空港送迎 <span className="text-xs text-gray-600"> (5,000<span className="text-[10px]">{'\u2009'}円</span>)</span>
-                      </>
-                    )}
-                  </span>
-              </Checkbox>
+                {location === '北海道' && (
+                  <Checkbox
+                    checked={airportPickup}
+                    onChange={(e) => {
+                      setAirportPickup(e.target.checked);
+                      if (e.target.checked) setPickupRequest(false);
+                    }}
+                  >
+                    <span className="font-semibold text-gray-900">
+                      新千歳空港からの送迎<span className="text-xs text-gray-600"> (片道3,000<span className="text-[10px]">{'\u2009'}円（税込）</span>)</span>
+                    </span>
+                  </Checkbox>
+                )}
+
+                {location === '福岡' && (
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-2">主要箇所からの送迎<span className="text-xs text-gray-600"> (片道3,000<span className="text-[10px]">{'\u2009'}円（税込）</span>)</span></p>
+                    <div className="space-y-2 pl-4">
+                      <div>
+                        <Checkbox
+                          checked={fukuokaPickupLocation === '福岡空港'}
+                          onChange={(e) => {
+                            setFukuokaPickupLocation(e.target.checked ? '福岡空港' : '');
+                            if (e.target.checked) setPickupRequest(false);
+                          }}
+                        >
+                          <span className="text-sm text-gray-900">福岡空港</span>
+                        </Checkbox>
+                      </div>
+                      <div>
+                        <Checkbox
+                          checked={fukuokaPickupLocation === '博多駅'}
+                          onChange={(e) => {
+                            setFukuokaPickupLocation(e.target.checked ? '博多駅' : '');
+                            if (e.target.checked) setPickupRequest(false);
+                          }}
+                        >
+                          <span className="text-sm text-gray-900">博多駅</span>
+                        </Checkbox>
+                      </div>
+                      <div>
+                        <Checkbox
+                          checked={fukuokaPickupLocation === '西鉄天神高速バスターミナル'}
+                          onChange={(e) => {
+                            setFukuokaPickupLocation(e.target.checked ? '西鉄天神高速バスターミナル' : '');
+                            if (e.target.checked) setPickupRequest(false);
+                          }}
+                        >
+                          <span className="text-sm text-gray-900">西鉄天神高速バスターミナル</span>
+                        </Checkbox>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <div className="mt-3">
-              <Checkbox
-                  className="mt-3"
-                  checked={pickupRequest}
-                  onChange={(e) => setPickupRequest(e.target.checked)}
-              >
-                <span className="font-semibold text-gray-900">送迎希望<span className="text-xs text-gray-600">(サイト下部記載のの金額が加算されます。概算にこの金額は含まれません)</span></span>
-              </Checkbox>
+                  <Checkbox
+                    className="mt-3"
+                    checked={pickupRequest}
+                    onChange={(e) => {
+                      setPickupRequest(e.target.checked);
+                      if (e.target.checked) {
+                        setFukuokaPickupLocation('');
+                        setAirportPickup(false);
+                      } else {
+                        setPickupLocation('');
+                      }
+                    }}
+                  >
+                    <div className="font-semibold text-gray-900">
+                      送迎希望（上記主要箇所以外）
+                      <div className="text-xs text-gray-600 font-normal mt-1">
+                        • 営業所から半径30km以内：3,000<span className="text-[10px]">{'\u2009'}円</span>（税込）<br/>
+                        • 30km以上：超過1kmあたり100<span className="text-[10px]">{'\u2009'}円</span>（税込）
+                      </div>
+                    </div>
+                  </Checkbox>
+                  {pickupRequest && (
+                    <div className="mt-2 pl-6">
+                      <input
+                        type="text"
+                        value={pickupLocation}
+                        onChange={(e) => setPickupLocation(e.target.value)}
+                        placeholder="送迎希望場所を入力してください"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      />
+                    </div>
+                  )}
                 </div>
-            </div>
+              </div>
+
+              {/* 北海道の特徴セクション */}
+              {location === '北海道' && (
+                <div className="mb-6 bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-blue-200 rounded-xl p-6 overflow-hidden">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">北海道でも安心！</h3>
+
+                  <div className="flex flex-col justify-center items-center text-center">
+                    <p className="text-sm font-semibold text-gray-700 mb-2">
+                      北海道の充電器は
+                    </p>
+                    <div className="text-5xl font-bold text-blue-600 mb-2 tabular-nums">
+                      {chargingStations.toLocaleString()}
+                    </div>
+                    <p className="text-sm font-semibold text-gray-700 mb-2">
+                      拠点あります
+                    </p>
+                    <a
+                      href="https://evsmart.net/spot/hokkaido/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-blue-600 hover:text-blue-800 underline mb-3"
+                    >
+                      詳細はこちら
+                    </a>
+                    <p className="text-xs font-bold text-orange-500 mt-2">
+                      かなり多くて電欠も心配なし！
+                    </p>
+                  </div>
+                </div>
+              )}
+
               <div className="mb-6 space-y-3 bg-gray-50 border border-gray-200 rounded-lg p-4">
                 <div className="flex items-start gap-2">
                   <svg className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -449,6 +572,26 @@ export default function BookingPage() {
                   <div>
                     <p className="font-semibold text-gray-900" style={{'marginBottom': '6px'}}>充電無料</p>
                     <p className="text-xs text-gray-600 mt-1">CHAdeMO・J1772アダプター・e-Mobility Power充電カード・Tesla SuperCharger利用可能
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <div>
+                    <p className="font-semibold text-gray-900" style={{'marginBottom': '6px'}}>詳しいサポート</p>
+                    <p className="text-xs text-gray-600 mt-1">レンタカー担当者は全員テスラオーナー。テスラの乗り方、充電の方法など詳しくサポートします。また、レンタル中にトラブルがあっても即座に対応します。
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <div>
+                    <p className="font-semibold text-gray-900" style={{'marginBottom': '6px'}}>待ち時間ゼロ</p>
+                    <p className="text-xs text-gray-600 mt-1">レンタル当日、順番待ちをする必要がないため、早く利用開始できます。
                     </p>
                   </div>
                 </div>
@@ -461,7 +604,7 @@ export default function BookingPage() {
                   {displayPrice !== null ? (
                     <>
                       {displayPrice.toLocaleString()}
-                      <span className="text-base">{'\u2009'}円</span>
+                      <span className="text-base">{'\u2009'}円（税込）</span>
                     </>
                   ) : (
                     'ー'
@@ -527,7 +670,7 @@ export default function BookingPage() {
                   {displayPrice !== null ? (
                     <>
                       {displayPrice.toLocaleString()}
-                      <span className="text-sm">{'\u2009'}円  </span>
+                      <span className="text-sm">{'\u2009'}円（税込）</span>
                     </>
                   ) : (
                     'ー'

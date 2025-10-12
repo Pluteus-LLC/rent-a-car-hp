@@ -4,8 +4,8 @@ import "./globals.css";
 import "antd/dist/reset.css";
 
 export const metadata: Metadata = {
-  title: "プルテウスレンタカー | Pluteus Rent-a-Car",
-  description: "高品質な車両とサービスを提供するプルテウスレンタカー",
+  title: "充電無料！北海道、福岡のテスラレンタカーはプルテウスレンタカー",
+  description: "新千歳空港、博多空港、博多駅からの利用に便利。レンタカー担当者は全員テスラオーナー。乗り方、充電の方法などしっかりサポート。Teslaの試乗としてもご活用することができ、試乗いただいた方にはTesla購入割引をプレゼント！",
 };
 
 export default function RootLayout({

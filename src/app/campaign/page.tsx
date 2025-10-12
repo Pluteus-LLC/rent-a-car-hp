@@ -73,7 +73,7 @@ export default function CampaignPage() {
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-sm text-gray-700 ml-4">
                   <li>当社から発行のテスラ紹介コードを利用</li>
-                  <li>6時間以上のレンタカー利用</li>
+                  <li>6<span className="text-[10px]">時間</span>以上のレンタカー利用</li>
                   <li>2025年12月31日までにコードを利用</li>
                 </ul>
               </div>

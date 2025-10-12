@@ -108,7 +108,7 @@ function TeslaCar({
 
         // 経路点
         const startPos  = new THREE.Vector3(0, yHeight, -20); // 左奥
-        const cornerPos = new THREE.Vector3(25, yHeight, 0); // 角
+        const cornerPos = new THREE.Vector3(20, yHeight, 0); // 角
         // フェーズ3は cornerPos → endPos（=停車地点）へ
 
         const endYaw   = 240;           // +z 正面
