@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { Select, DatePicker, Button, Checkbox, ConfigProvider } from 'antd';
 import dayjs, { Dayjs } from 'dayjs';
 import 'dayjs/locale/ja';
@@ -74,6 +74,7 @@ function ContactPageContent() {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [contactValueError, setContactValueError] = useState<string>('');
   const [phoneNumberError, setPhoneNumberError] = useState<string>('');
+  const isFirstMount = useRef(true);
 
   // URLパラメータから予約情報を取得
   useEffect(() => {
@@ -97,6 +98,21 @@ function ContactPageContent() {
     if (pickup) setPickupRequest(pickup === 'true');
     if (pickupLoc) setPickupLocation(pickupLoc);
   }, [searchParams]);
+
+  // 営業所変更時に他の営業所のオプションをリセット
+  useEffect(() => {
+    // 初回マウント時はスキップ
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+
+    if (location === '北海道') {
+      setFukuokaPickupLocation('');
+    } else if (location === '福岡') {
+      setAirportPickup(false);
+    }
+  }, [location]);
 
   // 価格計算
   useEffect(() => {
