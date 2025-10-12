@@ -12,8 +12,7 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-family-sans: "segoe-ui", "hiragino-kaku-gothic-pron", 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Sans', 'ヒラギノ角ゴシック', 'メイリオ', Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,7 +27,90 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+  font-family: "segoe-ui", "hiragino-kaku-gothic-pron", 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Sans', 'ヒラギノ角ゴシック', 'メイリオ', Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-feature-settings: "kern" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-numeric: tabular-nums;
+}
+.number {
+  font-family: "segoe-ui", 'Hiragino Sans', 'ヒラギノ角ゴシック', 'メイリオ', Meiryo, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Override Ant Design font family for all components -強力な上書き */
+* {
+  font-family: "segoe-ui", "hiragino-kaku-gothic-pron", 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Sans', 'ヒラギノ角ゴシック', 'メイリオ', Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+[class*="ant-"],
+.ant-input,
+.ant-select,
+.ant-picker,
+.ant-btn,
+.ant-checkbox,
+.ant-radio,
+.ant-form,
+.ant-table,
+.ant-modal,
+.ant-message,
+.ant-notification,
+.ant-dropdown,
+.ant-menu,
+.ant-pagination,
+.ant-tabs,
+.ant-card,
+.ant-list,
+.ant-descriptions,
+.ant-timeline,
+.ant-badge,
+.ant-tag,
+.ant-alert,
+.ant-tooltip,
+.ant-popover,
+.ant-drawer,
+.ant-calendar,
+.ant-date-picker,
+.ant-select-dropdown,
+.ant-picker-dropdown,
+input,
+button,
+select,
+textarea {
+  font-family: "segoe-ui", "hiragino-kaku-gothic-pron", 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Hiragino Sans', 'ヒラギノ角ゴシック', 'メイリオ', Meiryo, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+/* Hide scrollbar for all browsers */
+html,
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Hiragino Sans font for Japanese text */
+.hiragino-sans {
+  font-family: "segoe-ui", 'Hiragino Sans', 'ヒラギノ角ゴシック', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ', Meiryo, sans-serif;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out;
 }
 
 /* Responsive adjustments */
@@ -37,4 +119,25 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+}
+
+canvas {
+  height: 100%!important;
+}
+
+/* Ensure font-weight classes work correctly */
+.font-bold {
+  font-weight: 700 !important;
+}
+
+.font-semibold {
+  font-weight: 600 !important;
+}
+
+.font-normal {
+  font-weight: 400 !important;
+}
+
+.font-thin {
+  font-weight: 100 !important;
 }
