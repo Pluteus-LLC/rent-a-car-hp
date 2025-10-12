@@ -7,7 +7,6 @@ import 'dayjs/locale/ja';
 import locale from 'antd/locale/ja_JP';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 
 dayjs.locale('ja');
 
