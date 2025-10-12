@@ -259,7 +259,7 @@ function ContactPageContent() {
   if (step === 'confirmed') {
     return (
       <ConfigProvider locale={locale}>
-        <div className="w-full min-h-screen flex flex-col">
+        <div className="w-full min-h-screen flex flex-col bg-white dark:bg-gray-900">
           <Header />
           <div className="flex-1 flex flex-col items-center justify-start pt-20 relative">
             <div className="absolute inset-0">
@@ -271,19 +271,19 @@ function ContactPageContent() {
               animation: 'fadeIn 1s ease-in-out',
             }}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 pt-20 text-gray-900">
               さあ{location}でテスラが待っています
             </h1>
-            <p className="text-xl md:text-2xl text-gray-900 mb-8">連絡をお待ちください</p>
+            <p className="text-xl md:text-2xl text-gray-900 e mb-8">連絡をお待ちください</p>
             <div
-              className="mt-8 bg-white/50 backdrop-blur-md rounded-2xl p-8 max-w-lg mx-auto shadow-2xl border border-white/20"
+              className="mt-8 bg-white/90 backdrop-blur-md rounded-2xl p-8 max-w-lg mx-auto shadow-2xl border border-white/30"
               style={{
                 animation: 'fadeIn 1.5s ease-in-out',
               }}
             >
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                  <span className="text-sm font-semibold text-gray-600">貸出</span>
+                  <span className="text-sm font-semibold text-gray-900">貸出</span>
                   <span className="text-base font-medium text-gray-900">
                     <span className="text-xl">{startDate?.format('YYYY')}</span><span className="text-sm">年</span>
                     <span className="text-xl">{startDate?.format('M')}</span><span className="text-sm">月</span>
@@ -292,7 +292,7 @@ function ContactPageContent() {
                   </span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                  <span className="text-sm font-semibold text-gray-600">返却</span>
+                  <span className="text-sm font-semibold text-gray-900">返却</span>
                   <span className="text-base font-medium text-gray-900">
                     <span className="text-xl">{endDate?.format('YYYY')}</span><span className="text-sm">年</span>
                     <span className="text-xl">{endDate?.format('M')}</span><span className="text-sm">月</span>
@@ -302,7 +302,7 @@ function ContactPageContent() {
                 </div>
                 {duration && (
                   <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                    <span className="text-sm font-semibold text-gray-600">期間</span>
+                    <span className="text-sm font-semibold text-gray-900">期間</span>
                     <span className="text-base font-medium text-gray-900">
                       {duration.days > 0 && <><span className="text-xl">{duration.days}</span><span className="text-sm">{'\u2009'}泊</span></>}
                       {duration.days > 0 && duration.hours > 0 && ' '}
@@ -311,7 +311,7 @@ function ContactPageContent() {
                   </div>
                 )}
                 <div className="flex justify-between items-center pt-4">
-                  <span className="text-sm font-semibold text-gray-600 text-left">
+                  <span className="text-sm font-semibold text-gray-900 text-left">
                     概算{pickupRequest && <span className="text-xs block">(送迎費用なし)</span>}
                   </span>
                   <span className="text-3xl text-orange-500">
@@ -329,11 +329,11 @@ function ContactPageContent() {
 
   return (
     <ConfigProvider locale={locale}>
-      <div className="w-full min-h-screen flex flex-col bg-white">
+      <div className="w-full min-h-screen flex flex-col bg-white dark:bg-gray-900">
         <Header />
-        <div className="w-full py-4 px-4 md:px-8 bg-white border-b border-gray-200">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-2">あと一歩です</h2>
-          <p className="text-center text-gray-600">ご連絡先をお知らせください</p>
+        <div className="w-full py-4 px-4 md:px-8 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-2">あと一歩です</h2>
+          <p className="text-center text-gray-600 dark:text-gray-400">ご連絡先をお知らせください</p>
         </div>
 
         <div className="flex-1 grid grid-cols-1 md:grid-cols-3">
@@ -343,11 +343,11 @@ function ContactPageContent() {
           </div>
 
           {/* 右側：予約情報と連絡先フォーム (1/3幅) */}
-          <div className="overflow-y-auto p-4 md:pl-4 lg:pr-12 md:py-3 order-1 md:order-2 bg-white">
+          <div className="overflow-y-auto p-4 md:pl-4 lg:pr-12 md:py-3 order-1 md:order-2 bg-white dark:bg-gray-900">
             <div className="space-y-6">
             <div style={{"margin": "0"}}>
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-bold text-gray-900">予約内容</h3>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">予約内容</h3>
               <button
                 type="button"
                 onClick={() => setIsEditing(!isEditing)}
@@ -539,20 +539,20 @@ function ContactPageContent() {
               // 表示モード（コンパクト）
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between py-1">
-                  <span className="text-gray-600">営業所</span>
-                  <span className="font-semibold text-gray-900">{location === '北海道' ? '北海道（安平町）' : '福岡（福津市）'}</span>
+                  <span className="text-gray-600 dark:text-gray-400">営業所</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">{location === '北海道' ? '北海道（安平町）' : '福岡（福津市）'}</span>
                 </div>
                 <div className="flex justify-between py-1">
-                  <span className="text-gray-600">貸出</span>
-                  <span className="font-semibold text-gray-900">
+                  <span className="text-gray-600 dark:text-gray-400">貸出</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">
                     {startDate?.format('YYYY')}<span className="text-xs font-normal">年</span>
                     {startDate?.format('M')}<span className="text-xs font-normal">月</span>
                     {startDate?.format('D')}<span className="text-xs font-normal">日</span> {startTime}
                   </span>
                 </div>
                 <div className="flex justify-between py-1">
-                  <span className="text-gray-600">返却</span>
-                  <span className="font-semibold text-gray-900">
+                  <span className="text-gray-600 dark:text-gray-400">返却</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">
                     {endDate?.format('YYYY')}<span className="text-xs font-normal">年</span>
                     {endDate?.format('M')}<span className="text-xs font-normal">月</span>
                     {endDate?.format('D')}<span className="text-xs font-normal">日</span> {endTime}
@@ -560,14 +560,14 @@ function ContactPageContent() {
                 </div>
                 {(airportPickup || fukuokaPickupLocation || pickupRequest) && (
                   <div className="flex justify-between py-1">
-                    <span className="text-gray-600">オプション</span>
-                    <div className="font-semibold text-gray-900 text-sm text-right">
+                    <span className="text-gray-600 dark:text-gray-400">オプション</span>
+                    <div className="font-semibold text-gray-900 dark:text-white text-sm text-right">
                       {airportPickup && <div>新千歳空港送迎</div>}
                       {fukuokaPickupLocation && <div>{fukuokaPickupLocation}</div>}
                       {pickupRequest && (
                         <div>
                           送迎希望
-                          {pickupLocation && <div className="text-xs font-normal text-gray-600 mt-1">({pickupLocation})</div>}
+                          {pickupLocation && <div className="text-xs font-normal text-gray-600 dark:text-gray-400 mt-1">({pickupLocation})</div>}
                         </div>
                       )}
                     </div>
@@ -578,10 +578,10 @@ function ContactPageContent() {
 
             {/* 料金表示 */}
             {duration && (
-              <div className="flex justify-between items-center pt-3 mt-3 border-t border-gray-200">
+              <div className="flex justify-between items-center pt-3 mt-3 border-t border-gray-200 dark:border-gray-700">
                 <div>
-                  <span className="text-sm font-bold text-gray-900">概算料金</span>
-                  <p className="text-xs text-gray-600">
+                  <span className="text-sm font-bold text-gray-900 dark:text-white">概算料金</span>
+                  <p className="text-xs text-gray-600 dark:text-gray-400">
                     {duration.days > 0 && <>{duration.days}<span className="text-[10px]">{'\u2009'}泊</span></>}
                     {duration.days > 0 && duration.hours > 0 && '・'}
                     {duration.hours > 0 && <>{duration.hours}<span className="text-[10px]">{'\u2009'}時間</span></>}
@@ -595,18 +595,18 @@ function ContactPageContent() {
             </div>
 
             {/* 連絡先入力フォーム */}
-            <div className="space-y-4 pt-4 border-t border-gray-200">
-              <h3 className="text-lg font-bold text-gray-900">連絡先情報</h3>
+            <div className="space-y-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">連絡先情報</h3>
             <div>
-              <label className="block text-sm font-semibold mb-3 text-gray-900">ご希望の連絡方法</label>
+              <label className="block text-sm font-semibold mb-3 text-gray-900 dark:text-white">ご希望の連絡方法</label>
               <div className="grid grid-cols-3 gap-2">
                 <button
                   type="button"
                   onClick={() => setContactMethod('email')}
                   className={`py-3 px-4 rounded-lg border-2 transition-all font-semibold text-sm ${
                     contactMethod === 'email'
-                      ? 'border-orange-500 bg-orange-50 text-orange-700'
-                      : 'border-gray-300 bg-white text-gray-700 hover:border-orange-300'
+                      ? 'border-orange-500 bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-300'
+                      : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-orange-300 dark:hover:border-orange-600'
                   }`}
                 >
                   Email
@@ -616,8 +616,8 @@ function ContactPageContent() {
                   onClick={() => setContactMethod('x')}
                   className={`py-3 px-4 rounded-lg border-2 transition-all font-semibold text-sm ${
                     contactMethod === 'x'
-                      ? 'border-orange-500 bg-orange-50 text-orange-700'
-                      : 'border-gray-300 bg-white text-gray-700 hover:border-orange-300'
+                      ? 'border-orange-500 bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-300'
+                      : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-orange-300 dark:hover:border-orange-600'
                   }`}
                 >
                   X
@@ -627,8 +627,8 @@ function ContactPageContent() {
                   onClick={() => setContactMethod('instagram')}
                   className={`py-3 rounded-lg border-2 transition-all font-semibold text-sm ${
                     contactMethod === 'instagram'
-                      ? 'border-orange-500 bg-orange-50 text-orange-700'
-                      : 'border-gray-300 bg-white text-gray-700 hover:border-orange-300'
+                      ? 'border-orange-500 bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-300'
+                      : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-orange-300 dark:hover:border-orange-600'
                   }`}
                 >
                   Instagram
@@ -637,7 +637,7 @@ function ContactPageContent() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2 text-gray-900">
+              <label className="block text-sm font-semibold mb-2 text-gray-900 dark:text-white">
                 {contactMethod === 'email' ? 'メールアドレス' : contactMethod === 'x' ? 'X (Twitter) アカウント' : 'Instagram アカウント'}
               </label>
               <input
@@ -654,8 +654,8 @@ function ContactPageContent() {
                       ? '@username'
                       : '@username'
                 }
-                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden ${
-                  contactValueError ? 'border-red-500' : 'border-gray-300'
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden dark:bg-gray-800 dark:text-white ${
+                  contactValueError ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                 }`}
               />
               {contactValueError && (
@@ -664,18 +664,18 @@ function ContactPageContent() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2 text-gray-900">お名前</label>
+              <label className="block text-sm font-semibold mb-2 text-gray-900 dark:text-white">お名前</label>
               <input
                 type="text"
                 value={customerName}
                 onChange={(e) => setCustomerName(e.target.value)}
                 placeholder="山田 太郎"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden dark:bg-gray-800 dark:text-white"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2 text-gray-900">電話番号</label>
+              <label className="block text-sm font-semibold mb-2 text-gray-900 dark:text-white">電話番号</label>
               <input
                 type="tel"
                 value={phoneNumber}
@@ -684,8 +684,8 @@ function ContactPageContent() {
                   if (phoneNumberError) setPhoneNumberError('');
                 }}
                 placeholder="090-1234-5678"
-                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden ${
-                  phoneNumberError ? 'border-red-500' : 'border-gray-300'
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden dark:bg-gray-800 dark:text-white ${
+                  phoneNumberError ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                 }`}
               />
               {phoneNumberError && (

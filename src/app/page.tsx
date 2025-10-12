@@ -2,12 +2,15 @@
 
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import Header from '@/components/Header';
 
 const BookingPage = dynamic(() => import('@/components/BookingPage'), { ssr: false });
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
+      <Header />
+
       <section id="booking" className="w-full min-h-screen">
         <BookingPage />
       </section>

@@ -195,102 +195,8 @@ export default function BookingPage() {
   return (
     <ConfigProvider locale={locale}>
       <div
-        className="min-h-screen bg-white text-gray-900 relative overflow-hidden font-sans"
+        className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white relative overflow-hidden font-sans"
       >
-        {/* Campaign Banner */}
-        <a
-          href="/campaign"
-          className="fixed top-0 left-0 right-0 z-50 bg-gray-300 hover:bg-gray-400 transition text-center py-2 px-4 cursor-pointer"
-        >
-          <p className="text-sm md:text-base text-gray-900">
-            利用後購入キャンペーン実施中！
-          </p>
-        </a>
-
-        <header className="fixed top-10 left-0 right-0 z-50 bg-white">
-          <div className="max-w-7xl mx-auto px-6 py-3">
-            <div className="flex justify-between items-center">
-              <div>
-                <h1 className="hidden md:block text-2xl font-bold text-gray-900" style={{ margin: 0 }}>
-                  <span className="text-sm">北海道と福岡のテスラレンタカー</span><br />
-                  プルテウスレンタカー
-                </h1>
-                <h1 className="text-sm font-bold text-gray-900 md:hidden" style={{ margin: 0 }}>
-                  <span style={{fontSize: '8px'}}>北海道と福岡のテスラレンタカー</span><br />
-                  プルテウスレンタカー
-                </h1>
-              </div>
-              <div className="flex items-center gap-6">
-                <nav className="flex gap-6 items-center">
-                  <a
-                    href="#booking"
-                    className="hidden md:block text-gray-600 hover:text-gray-900 transition font-semibold"
-                  >
-                    予約
-                  </a>
-                  <a
-                    href="#pricing"
-                    className="text-gray-600 hover:text-gray-900 transition font-semibold"
-                  >
-                    料金
-                  </a>
-                </nav>
-
-                {/* SNS Links */}
-                <div className="flex gap-3 ml-4 border-l border-gray-300 pl-4">
-                  {/* X (Twitter) */}
-                  <a
-                    href="https://x.com/pluteusrentacar"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-gray-900 transition transform hover:scale-110"
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                  </a>
-
-                  {/* Instagram */}
-                  <a
-                    href="https://www.instagram.com/pluteus_rent_a_car/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-gray-900 transition transform hover:scale-110"
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                  </a>
-
-                  {/* TikTok */}
-                  <a
-                    href="https://www.tiktok.com/@pluteus_rent_a_car"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-gray-900 transition transform hover:scale-110"
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19.321 5.562a5.124 5.124 0 0 1-.443-.258 6.228 6.228 0 0 1-1.137-.966c-.849-.849-1.302-1.875-1.302-2.992V.93h-3.194v11.11c0 .58-.237 1.14-.659 1.562a2.242 2.242 0 0 1-1.593.659c-1.227 0-2.232-1.005-2.232-2.232 0-1.227 1.005-2.232 2.232-2.232.117 0 .232.009.344.028V6.472a5.555 5.555 0 0 0-.344-.01C6.982 6.462 3.67 9.773 3.67 13.783s3.312 7.321 7.322 7.321c4.009 0 7.321-3.312 7.321-7.321V8.796c1.424 1.02 3.175 1.622 5.035 1.622v-3.194c-1.226 0-2.359-.373-3.027-1.662z"/>
-                    </svg>
-                  </a>
-
-                  {/* RedNote (小红書) */}
-                  <a
-                    href="https://xhslink.com/m/3Ltfyyw7yzY"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-gray-900 transition transform hover:scale-110"
-                  >
-                    <div className="w-5 h-5 flex items-center justify-center bg-red-600 rounded">
-                      <span className="text-white text-[6px] font-bold">小红書</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-
         {/* Booking Form */}
         <div className="min-h-screen flex flex-col md:flex-row items-center md:items-start justify-center pt-24">
           <div className="block md:hidden w-full h-64 relative">
@@ -327,18 +233,18 @@ export default function BookingPage() {
                 msOverflowStyle: 'none',
               }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold mb-1 md:mb-8 text-center text-gray-900 pb-3">レンタカー予約</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-1 md:mb-8 text-center text-gray-900 dark:text-white pb-3">レンタカー予約</h2>
 
               <div className="mb-3">
-                <label className="block text-sm font-semibold mb-2 text-gray-900">貸出場所</label>
+                <label className="block text-sm font-semibold mb-2 text-gray-900 dark:text-white">貸出場所</label>
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     type="button"
                     onClick={() => setLocation('北海道')}
                     className={`py-4 px-3 rounded-lg border-2 transition-all font-semibold text-sm ${
                       location === '北海道'
-                        ? 'border-orange-500 bg-orange-50 text-orange-700'
-                        : 'border-gray-300 bg-gray-50 text-gray-700 hover:border-orange-300'
+                        ? 'border-orange-500 bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-300'
+                        : 'border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-orange-300 dark:hover:border-orange-600'
                     }`}
                   >
                     <div className="font-bold mb-1">北海道</div>
@@ -350,8 +256,8 @@ export default function BookingPage() {
                     onClick={() => setLocation('福岡')}
                     className={`py-4 px-3 rounded-lg border-2 transition-all font-semibold text-sm ${
                       location === '福岡'
-                        ? 'border-orange-500 bg-orange-50 text-orange-700'
-                        : 'border-gray-300 bg-gray-50 text-gray-700 hover:border-orange-300'
+                        ? 'border-orange-500 bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-300'
+                        : 'border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-orange-300 dark:hover:border-orange-600'
                     }`}
                   >
                     <div className="font-bold mb-1">福岡</div>
@@ -363,7 +269,7 @@ export default function BookingPage() {
 
               {location && (
                   <div className="mb-3">
-                    <div className="w-full h-32 rounded-lg overflow-hidden border border-gray-300">
+                    <div className="w-full h-32 rounded-lg overflow-hidden border border-gray-300 dark:border-gray-600">
                       {location === '北海道' ? (
                           <iframe
                               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92846.89347996594!2d141.7546304!3d42.7777778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b1e8e8e8e8e8f%3A0x1e8e8e8e8e8e8e8e!2z5YyX5rW36YGT5a6J5bmz55S6!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
@@ -392,7 +298,7 @@ export default function BookingPage() {
               )}
 
               <div className="mb-6">
-                <label className="block text-sm font-semibold mb-2 text-gray-900">貸出日時</label>
+                <label className="block text-sm font-semibold mb-2 text-gray-900 dark:text-white">貸出日時</label>
                 <div className="grid grid-cols-2 gap-2">
                   <DatePicker
                     size="large"
@@ -421,7 +327,7 @@ export default function BookingPage() {
 
               {/* 終了日時 */}
               <div className="mb-6">
-                <label className="block text-sm font-semibold mb-2 text-gray-900">返却日時</label>
+                <label className="block text-sm font-semibold mb-2 text-gray-900 dark:text-white">返却日時</label>
                 <div className="grid grid-cols-2 gap-2">
                   <DatePicker
                     size="large"
@@ -458,15 +364,15 @@ export default function BookingPage() {
                       if (e.target.checked) setPickupRequest(false);
                     }}
                   >
-                    <span className="font-semibold text-gray-900">
-                      新千歳空港からの送迎<span className="text-xs text-gray-600"> (片道3,000<span className="text-[10px]">{'\u2009'}円（税込）</span>)</span>
+                    <span className="font-semibold text-gray-900 dark:text-white">
+                      新千歳空港からの送迎<span className="text-xs text-gray-600 dark:text-gray-400"> (片道3,000<span className="text-[10px]">{'\u2009'}円（税込）</span>)</span>
                     </span>
                   </Checkbox>
                 )}
 
                 {location === '福岡' && (
                   <div>
-                    <p className="font-semibold text-gray-900 mb-2">主要箇所からの送迎<span className="text-xs text-gray-600"> (片道3,000<span className="text-[10px]">{'\u2009'}円（税込）</span>)</span></p>
+                    <p className="font-semibold text-gray-900 dark:text-white mb-2">主要箇所からの送迎<span className="text-xs text-gray-600 dark:text-gray-400"> (片道3,000<span className="text-[10px]">{'\u2009'}円（税込）</span>)</span></p>
                     <div className="space-y-2 pl-4">
                       <div>
                         <Checkbox
@@ -476,7 +382,7 @@ export default function BookingPage() {
                             if (e.target.checked) setPickupRequest(false);
                           }}
                         >
-                          <span className="text-sm text-gray-900">福岡空港</span>
+                          <span className="text-sm text-gray-900 dark:text-white">福岡空港</span>
                         </Checkbox>
                       </div>
                       <div>
@@ -487,7 +393,7 @@ export default function BookingPage() {
                             if (e.target.checked) setPickupRequest(false);
                           }}
                         >
-                          <span className="text-sm text-gray-900">博多駅</span>
+                          <span className="text-sm text-gray-900 dark:text-white">博多駅</span>
                         </Checkbox>
                       </div>
                       <div>
@@ -498,7 +404,7 @@ export default function BookingPage() {
                             if (e.target.checked) setPickupRequest(false);
                           }}
                         >
-                          <span className="text-sm text-gray-900">西鉄天神高速バスターミナル</span>
+                          <span className="text-sm text-gray-900 dark:text-white">西鉄天神高速バスターミナル</span>
                         </Checkbox>
                       </div>
                     </div>
@@ -519,9 +425,9 @@ export default function BookingPage() {
                       }
                     }}
                   >
-                    <div className="font-semibold text-gray-900">
+                    <div className="font-semibold text-gray-900 dark:text-white">
                       送迎希望（上記主要箇所以外）
-                      <div className="text-xs text-gray-600 font-normal mt-1">
+                      <div className="text-xs text-gray-600 dark:text-gray-400 font-normal mt-1">
                         • 営業所から半径30km以内：3,000<span className="text-[10px]">{'\u2009'}円</span>（税込）<br/>
                         • 30km以上：超過1kmあたり100<span className="text-[10px]">{'\u2009'}円</span>（税込）
                       </div>
@@ -534,7 +440,7 @@ export default function BookingPage() {
                         value={pickupLocation}
                         onChange={(e) => setPickupLocation(e.target.value)}
                         placeholder="送迎希望場所を入力してください"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent overflow-x-hidden"
                       />
                     </div>
                   )}
@@ -543,42 +449,42 @@ export default function BookingPage() {
 
               {/* 北海道の特徴セクション */}
               {location === '北海道' && (
-                <div className="mb-6 bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-blue-200 rounded-xl p-6 overflow-hidden">
-                  <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">北海道でも安心！</h3>
+                <div className="mb-6 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950 border-2 border-blue-200 dark:border-blue-800 rounded-xl p-6 overflow-hidden">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 text-center">北海道でも安心！</h3>
 
                   <div className="flex flex-col justify-center items-center text-center">
-                    <p className="text-sm font-semibold text-gray-700 mb-2">
+                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                       北海道の充電器は
                     </p>
-                    <div className="text-5xl font-bold text-blue-600 mb-2 tabular-nums">
+                    <div className="text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2 tabular-nums">
                       {chargingStations.toLocaleString()}
                     </div>
-                    <p className="text-sm font-semibold text-gray-700 mb-2">
+                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                       拠点あります
                     </p>
                     <a
                       href="https://evsmart.net/spot/hokkaido/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs text-blue-600 hover:text-blue-800 underline mb-3"
+                      className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline mb-3"
                     >
                       詳細はこちら
                     </a>
-                    <p className="text-xs font-bold text-orange-500 mt-2">
+                    <p className="text-xs font-bold text-orange-500 dark:text-orange-400 mt-2">
                       かなり多くて電欠も心配なし！
                     </p>
                   </div>
                 </div>
               )}
 
-              <div className="mb-6 space-y-3 bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <div className="mb-6 space-y-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
                 <div className="flex items-start gap-2">
                   <svg className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <div>
-                    <p className="font-semibold text-gray-900" style={{'marginBottom': '6px'}}>充電無料</p>
-                    <p className="text-xs text-gray-600 mt-1">CHAdeMO・J1772アダプター・e-Mobility Power充電カード・Tesla SuperCharger利用可能
+                    <p className="font-semibold text-gray-900 dark:text-white" style={{'marginBottom': '6px'}}>充電無料</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">CHAdeMO・J1772アダプター・e-Mobility Power充電カード・Tesla SuperCharger利用可能
                     </p>
                   </div>
                 </div>
@@ -587,8 +493,8 @@ export default function BookingPage() {
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <div>
-                    <p className="font-semibold text-gray-900" style={{'marginBottom': '6px'}}>詳しいサポート</p>
-                    <p className="text-xs text-gray-600 mt-1">レンタカー担当者は全員テスラオーナー。テスラの乗り方、充電の方法など詳しくサポートします。また、レンタル中にトラブルがあっても即座に対応します。
+                    <p className="font-semibold text-gray-900 dark:text-white" style={{'marginBottom': '6px'}}>詳しいサポート</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">レンタカー担当者は全員テスラオーナー。テスラの乗り方、充電の方法など詳しくサポートします。また、レンタル中にトラブルがあっても即座に対応します。
                     </p>
                   </div>
                 </div>
@@ -597,17 +503,17 @@ export default function BookingPage() {
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <div>
-                    <p className="font-semibold text-gray-900" style={{'marginBottom': '6px'}}>待ち時間ゼロ</p>
-                    <p className="text-xs text-gray-600 mt-1">レンタル当日、順番待ちをする必要がないため、早く利用開始できます。
+                    <p className="font-semibold text-gray-900 dark:text-white" style={{'marginBottom': '6px'}}>待ち時間ゼロ</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">レンタル当日、順番待ちをする必要がないため、早く利用開始できます。
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="hidden md:flex fixed bottom-0 right-0 w-1/3 h-28 items-center justify-between bg-white shadow-xl rounded-t-3xl pl-10 pr-12 py-6 z-50">
+            <div className="hidden md:flex fixed bottom-0 right-0 w-1/3 h-28 items-center justify-between bg-white dark:bg-gray-800 shadow-xl rounded-t-3xl pl-10 pr-12 py-6 z-50">
               <div>
-                <p className="text-2xl text-gray-900 font-medium" style={{ margin: 0 }}>
+                <p className="text-2xl text-gray-900 dark:text-white font-medium" style={{ margin: 0 }}>
                   {displayPrice !== null ? (
                     <>
                       {displayPrice.toLocaleString()}
@@ -617,7 +523,7 @@ export default function BookingPage() {
                     'ー'
                   )}
                 </p>
-                <p className="text-xs text-gray-500 mt-1" style={{ margin: 0 }}>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1" style={{ margin: 0 }}>
                   概算{pickupRequest && '(送迎費用は概算に含まれていません。)'}
                   {duration && (
                     <span className="ml-2">
@@ -652,11 +558,11 @@ export default function BookingPage() {
             </div>
 
             {/* モバイル用 - 画面下部に固定 */}
-            <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-2xl border-t border-gray-200 px-4 py-4 z-50 flex items-center justify-between gap-4">
+            <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-2xl border-t border-gray-200 dark:border-gray-700 px-4 py-4 z-50 flex items-center justify-between gap-4">
               <div className="flex-1">
-                <p className="text-2xl font-nomal text-gray-900 pl-6" style={{ margin: 0 }}>
-                  <span className="text-[18px] text-gray-500 mt-1 pr-3">
-                    概算  <span className="text-[12px] text-gray-500 mt-1 pr-3">{pickupRequest && '(送迎費用は含まれていません。)'}</span><br/>
+                <p className="text-2xl font-nomal text-gray-900 dark:text-white pl-6" style={{ margin: 0 }}>
+                  <span className="text-[18px] text-gray-500 dark:text-gray-400 mt-1 pr-3">
+                    概算  <span className="text-[12px] text-gray-500 dark:text-gray-400 mt-1 pr-3">{pickupRequest && '(送迎費用は含まれていません。)'}</span><br/>
                     {duration && (
                         <span className="ml-1">
                       {duration.days > 0 && (
