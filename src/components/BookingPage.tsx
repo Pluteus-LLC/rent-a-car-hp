@@ -483,8 +483,9 @@ export default function BookingPage() {
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <div>
-                    <p className="font-semibold text-gray-900 dark:text-white" style={{'marginBottom': '6px'}}>充電無料</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">CHAdeMO・J1772アダプター・e-Mobility Power充電カード・Tesla SuperCharger利用可能
+                    <p className="font-semibold text-gray-900 dark:text-white" style={{'marginBottom': '6px'}}>充電無料、各種アダプタ利用可能</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">TESLA Supercharger, e-Mobility Power充電カード対応充電器 が無料で利用可能。
+                      CHAdeMO,J1772アダプタも車載しているので、地方や観光地でも安心！
                     </p>
                   </div>
                 </div>
@@ -493,18 +494,8 @@ export default function BookingPage() {
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <div>
-                    <p className="font-semibold text-gray-900 dark:text-white" style={{'marginBottom': '6px'}}>詳しいサポート</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">レンタカー担当者は全員テスラオーナー。テスラの乗り方、充電の方法など詳しくサポートします。また、レンタル中にトラブルがあっても即座に対応します。
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-2">
-                  <svg className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <div>
-                    <p className="font-semibold text-gray-900 dark:text-white" style={{'marginBottom': '6px'}}>待ち時間ゼロ</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">レンタル当日、順番待ちをする必要がないため、早く利用開始できます。
+                    <p className="font-semibold text-gray-900 dark:text-white" style={{'marginBottom': '6px'}}>分かりやすいサポート</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">テスラの乗り方、充電の方法など詳しくサポートします。また、レンタル中にトラブルがあっても即座に対応します。
                     </p>
                   </div>
                 </div>
