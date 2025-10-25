@@ -9,14 +9,10 @@
 
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.shopify.com">
-    <link rel="dns-prefetch" href="https://di-uploads-pod13.dealerinspire.com">
-    <link rel="dns-prefetch" href="https://carsguide-res.cloudinary.com">
-    <link rel="dns-prefetch" href="https://www.bimmer-tech.net">
-    <link rel="dns-prefetch" href="https://cdn.prod.website-files.com">
 
     <!-- Preload LCP hero image -->
-    <link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0610/6791/9499/files/Cybertruck-End-of-Page-US-Desktop-v2.avif?v=1755103671" fetchpriority="high">
+    <link rel="preload" as="image" href="/lp/main/images/01_background_model3.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/lp/main/images/01_background_model3.jpg" fetchpriority="high">
 
     <!-- Inline Google Fonts -->
     <style>
@@ -79,7 +75,11 @@
         header {
             position: relative;
             min-height: 100vh;
-            background: url('https://cdn.shopify.com/s/files/1/0610/6791/9499/files/Cybertruck-End-of-Page-US-Desktop-v2.avif?v=1755103671') center/cover no-repeat;
+            background: url('/lp/main/images/01_background_model3.jpg') center/cover no-repeat;
+            background: image-set(
+                url('/lp/main/images/01_background_model3.webp') type('image/webp'),
+                url('/lp/main/images/01_background_model3.jpg') type('image/jpeg')
+            ) center/cover no-repeat;
             color: white;
             text-align: center;
             display: flex;
@@ -481,21 +481,21 @@
     <section id="about">
         <div class="container">
             <h2>プルテウスレンタカーって？</h2>
-            <div class="img-card" style="background-image: url('https://di-uploads-pod13.dealerinspire.com/jiddmotors/uploads/2024/10/Tesla-Model-Y-Interior-Features-A-Look-Inside-the-Future-of-Driving.jpg');"></div>
+            <div class="img-card" style="background-image: url('/lp/main/images/02_whatispluteus.webp');"></div>
             <p>北海道と福岡県のテスラ専門レンタカー屋さんです。<br>快適で静か、洗練されたデザインは写真映え抜群。<br>他とは違うワンランク上のワクワクする移動体験。<br>テスラに興味がある、テスラに乗ってみたい方も大歓迎です。</p>
         </div>
     </section>
     <section id="tesla">
         <div class="container">
             <h2>そもそもテスラって？</h2>
-            <div class="img-card" style="background-image: url('https://carsguide-res.cloudinary.com/image/upload/c_fit,h_841,w_1490,f_auto,t_cg_base/v1/editorial/story/hero_image/tesla-robovan-and-robotaxi-my26-concept-1001x565-(1).jpg');"></div>
+            <div class="img-card" style="background-image: url('/lp/main/images/03_whatistesla.webp');"></div>
             <p>テスラは電気自動車のパイオニア。<br>力強い加速、先進の運転支援と上質なインテリアを備えた最先端のカーブランドです。<br>センターコンソールにはボタン一つなく、特徴的なタッチスクリーンひとつで、車両のすべてをコントロールできます。</p>
         </div>
     </section>
     <section id="features">
         <div class="container">
             <h2>テスラレンタカーの魅力</h2>
-            <div class="img-card" style="background-image: url('https://www.bimmer-tech.net/media/image/88/90/8ae8de5fe3a2c565fb23d1b62ef5.jpeg');"></div>
+            <div class="img-card" style="background-image: url('/lp/main/images/04_modelY_interior.webp');"></div>
             <p>気持ちいい加速、車内の静かさと上質なインテリアと高音質なオーディオによる快適さ、先進機能による安心感と未来の体験。<br>見た目のかっこよさも相まって、特別な日やロードトリップにも使えるワンランク上の移動を体験できます。</p>
         </div>
     </section>
@@ -504,8 +504,8 @@
             <h2>予約方法</h2>
             <div class="img-card">
                 <picture style="display: block; width: 100%; height: 100%;">
-                    <source srcset="/lp/main/images/Reservation_Screen.webp" type="image/webp">
-                    <img src="/lp/main/images/Reservation_Screen.png" alt="予約画面" width="1864" height="914" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    <source srcset="/lp/main/images/05_Reservation_Screen.webp" type="image/webp">
+                    <img src="/lp/main/images/05_Reservation_Screen.png" alt="予約画面" width="1864" height="914" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
                 </picture>
             </div>
             <p>ウェブで車種と日時、連絡方法を選択し仮予約。<br>担当者からお電話またはSNSのDMで確認後、予約確定！<br>当日は【規約と操作説明 → 現金にてお支払い→ご出発】の流れでスムーズにご利用いただけます。</p>
@@ -526,7 +526,7 @@
     <section id="faq">
         <div class="container">
             <h2>よくあるQ&A</h2>
-            <div class="img-card" style="background-image: url('https://cdn.prod.website-files.com/6787c34f62d09fbb31c75863/6794c5508a347375dc049155_megane_superchargeur_tesla.jpeg');"></div>
+            <div class="img-card" style="background-image: url('/lp/main/images/06_modelY_charging_outside.webp');"></div>
             <div class="faq-item">
                 <h3>うまく操作できるか心配です。</h3>
                 <p>貸出時にスタッフが実演で操作方法をお教えします。<br>また、TESLA公式の動画マニュアルもあり、初めてでも安心です。</p>
