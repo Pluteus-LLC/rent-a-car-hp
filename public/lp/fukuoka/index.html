@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プルテウスレンタカー | テスラの未来ドライブ体験</title>
+    <meta name="description" content="テスラのEVレンタカーで静かで力強いドライブを。写真映えするデザイン、先進機能、快適な移動体験をお届けします。">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload LCP hero image -->
+    <link rel="preload" as="image" href="/lp/fukuoka/images/01_background_model3.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/lp/fukuoka/images/01_background_model3.jpg" fetchpriority="high">
+
+    <!-- Inline Google Fonts -->
+    <style>
+        @font-face {
+          font-family: 'Noto Sans JP';
+          font-style: normal;
+          font-weight: 300;
+          font-display: swap;
+          src: url(https://fonts.gstatic.com/s/notosansjp/v55/-F6jfjtqLzI2JPCgQBnw7HFyzSD-AsregP8VFE8j75s.ttf) format('truetype');
+        }
+        @font-face {
+          font-family: 'Noto Sans JP';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url(https://fonts.gstatic.com/s/notosansjp/v55/-F6jfjtqLzI2JPCgQBnw7HFyzSD-AsregP8VFBEj75s.ttf) format('truetype');
+        }
+        @font-face {
+          font-family: 'Noto Sans JP';
+          font-style: normal;
+          font-weight: 500;
+          font-display: swap;
+          src: url(https://fonts.gstatic.com/s/notosansjp/v55/-F6jfjtqLzI2JPCgQBnw7HFyzSD-AsregP8VFCMj75s.ttf) format('truetype');
+        }
+        @font-face {
+          font-family: 'Noto Sans JP';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url(https://fonts.gstatic.com/s/notosansjp/v55/-F6jfjtqLzI2JPCgQBnw7HFyzSD-AsregP8VFM8k75s.ttf) format('truetype');
+        }
+        @font-face {
+          font-family: 'Noto Sans JP';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url(https://fonts.gstatic.com/s/notosansjp/v55/-F6jfjtqLzI2JPCgQBnw7HFyzSD-AsregP8VFPYk75s.ttf) format('truetype');
+        }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #1d1d1f;
+            background: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            position: relative;
+            min-height: 100vh;
+            background: url('/lp/fukuoka/images/01_background_model3.jpg') center/cover no-repeat;
+            background: image-set(
+                url('/lp/fukuoka/images/01_background_model3.webp') type('image/webp'),
+                url('/lp/fukuoka/images/01_background_model3.jpg') type('image/jpeg')
+            ) center/cover no-repeat;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.3) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+            padding: 0 20px;
+        }
+        .hero-content.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .catch {
+            font-size: 1.45rem;
+            font-weight: 500;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transform: translateY(20px);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        .catch.show {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 1s ease-out 0.4s;
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            white-space: normal;
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            color: #d1d1d6;
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 700px;
+            margin: 0;
+            z-index: 2;
+            writing-mode: horizontal-tb;
+            white-space: normal; /* 修正: nowrapからnormalに変更 */
+            width: 90%; /* はみ出し防止のため幅を追加 */
+        }
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 34px;
+            height: 56px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .scroll-down::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin-left: -10px;
+            border-left: 2px solid rgba(255,255,255,0.9);
+            border-bottom: 2px solid rgba(255,255,255,0.9);
+            transform: rotate(-45deg);
+            border-radius: 3px;
+        }
+        .scroll-group {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 2.5s ease-in-out infinite;
+            z-index: 2;
+            text-align: center;
+            width: 100%; /* subtitleがはみ出ないように */
+        }
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-12px); }
+        }
+        section {
+            padding: 100px 0;
+            position: relative;
+            transition: background 0.6s ease;
+        }
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: -1;
+        }
+        section:nth-child(odd) {
+            background: linear-gradient(135deg, #ffffff 0%, #f9f9fb 100%);
+        }
+        section:nth-child(even) {
+            background: linear-gradient(135deg, #f5f5f7 0%, #f9f9fb 100%);
+        }
+        h2 {
+            font-size: 2.3rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1d1d1f;
+            font-weight: 600;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #0071e3, #5ac8fa);
+            display: block;
+            margin: 18px auto 0;
+            border-radius: 2px;
+        }
+        h3 {
+            font-size: 1.55rem;
+            margin: 30px 0 16px;
+            color: #1d1d1f;
+            font-weight: 600;
+            text-align: center;
+            white-space: normal;
+        }
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 22px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #3a3a3c;
+            font-weight: 400;
+            white-space: normal;
+        }
+        .img-card {
+            width: 100%;
+            height: 420px;
+            margin: 40px 0;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            background-size: cover;
+            background-position: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+        .img-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
+            pointer-events: none;
+        }
+        .img-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        .cta-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(0,113,227,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 32px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        .btn-reserve {
+            display: inline-block;
+            background: linear-gradient(135deg, #0071e3, #5ac8fa);
+            color: white;
+            padding: 18px 52px;
+            font-size: 1.35rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 999px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 10px 25px rgba(0, 113, 227, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-reserve::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .btn-reserve:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px rgba(0, 113, 227, 0.4);
+        }
+        .btn-reserve:hover::before {
+            opacity: 1;
+        }
+        .btn-reserve:active {
+            transform: translateY(-2px);
+        }
+        .sns-links {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            font-size: 1.1rem;
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+        .sns-links.sns-footer {
+            margin-top: 0;
+            font-size: 0.9rem;
+            color: #86868b;
+        }
+        .sns-links.sns-footer span {
+            margin-right: 12px;
+        }
+        .sns-links.sns-footer {
+            color: #86868b;
+        }
+        .sns-link svg {
+            width: 24px;
+            height: 24px;
+        }
+        .sns-links.sns-footer .sns-link svg {
+            width: 20px;
+            height: 20px;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 32px;
+            margin: 20px 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .faq-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+        }
+        .announcement {
+            background: linear-gradient(135deg, #0071e3 0%, #5ac8fa 100%);
+            padding: 40px 32px;
+            margin: 40px 0;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,113,227,0.25);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid rgba(255,255,255,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .announcement::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .announcement:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 80px rgba(0,113,227,0.35);
+        }
+        .announcement-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .announcement-text {
+            font-size: 1.15rem;
+            color: white;
+            line-height: 1.8;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            white-space: normal;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.9);
+        }
+        .price-table th, .price-table td {
+            padding: 16px 12px;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e7;
+            white-space: normal;
+        }
+        .price-table th {
+            background: linear-gradient(135deg, #0071e3, #5ac8fa);
+            color: white;
+            font-weight: 600;
+        }
+        .price-table tr:hover {
+            background: rgba(0,113,227,0.05);
+        }
+        .price-note {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 15px;
+            line-height: 1.6;
+            white-space: normal;
+        }
+        footer {
+            text-align: center;
+            padding: 50px 20px 50px 20px;
+            background: #f5f5f7;
+            color: #86868b;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        footer .copyright {
+            margin-bottom: 16px;
+        }
+        .floating-reserve {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #0071e3, #5ac8fa);
+            color: white;
+            padding: 16px 36px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 999px;
+            box-shadow: 0 8px 25px rgba(0, 113, 227, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .floating-reserve.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .floating-reserve:hover {
+            transform: translateX(-50%) translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 113, 227, 0.5);
+        }
+        .floating-reserve svg {
+            width: 20px;
+            height: 20px;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.3rem; }
+            .catch { font-size: 1.3rem; }
+            header { min-height: 90vh; }
+            .img-card { height: 280px; border-radius: 18px; }
+            h2 { font-size: 2rem; }
+            .btn-reserve { padding: 16px 40px; font-size: 1.25rem; }
+            section { padding: 80px 0; }
+            .faq-item { padding: 24px; }
+            .floating-reserve { padding: 14px 28px; font-size: 1rem; bottom: 20px; }
+            .sns-links { gap: 16px; }
+            .sns-link { width: 42px; height: 42px; }
+            .sns-link svg { width: 22px; height: 22px; }
+            .price-table { font-size: 0.95rem; }
+            .price-table th, .price-table td { padding: 12px 8px; }
+            .subtitle { font-size: 1.1rem; bottom: 70px; white-space: normal; } /* 修正: nowrapからnormalに変更 */
+            .scroll-down { bottom: 30px; }
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .catch { font-size: 1.15rem; }
+            .scroll-down { bottom: 30px; width: 30px; height: 50px; }
+            .scroll-down::before { width: 18px; height: 18px; margin-left: -9px; }
+            .sns-links { gap: 12px; } /* 修正: flex-wrap: wrap; を削除 */
+            .sns-link { width: 40px; height: 40px; }
+            .sns-link svg { width: 20px; height: 20px; }
+            .subtitle { font-size: 1rem; bottom: 80px; white-space: normal; } /* 修正: nowrapからnormalに変更 */
+            .scroll-down { bottom: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <header id="hero">
+        <div class="hero-content">
+            <div class="catch">千早駅徒歩1分半。テスラのある生活はここから始まる。</div>
+            <h1>日常やロードトリップに<br>"テスラ"という選択</h1>
+        </div>
+        <div class="scroll-group">
+            <p class="subtitle">体験してみる</p>
+            <div class="scroll-down" onclick="scrollToContent()"></div>
+        </div>
+    </header>
+    <section id="announcement" style="padding: 60px 0;">
+        <div class="container">
+            <div class="announcement">
+                <div class="announcement-title">🎉 お知らせ</div>
+                <p class="announcement-text">
+                    11月1日より、"千早駅から徒歩１分半、全力で走れば30秒" の場所で<br>
+                    貸出と返却が可能になります！
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <h2>プルテウスレンタカーって？</h2>
+            <div class="img-card" style="background-image: url('/lp/fukuoka/images/02_whatispluteus.webp');"></div>
+            <p>福岡県と北海道のテスラ専門レンタカー屋さんです。<br>福岡県では "千早駅から徒歩１分半、全力で走れば30秒" の場所で貸出と返却が可能。<br>他とは違うワンランク上でワクワクする移動体験を提供します。<br>日常使いはもちろん、テスラに興味がある方も大歓迎です。</p>
+        </div>
+    </section>
+    <section id="tesla">
+        <div class="container">
+            <h2>そもそもテスラって？</h2>
+            <div class="img-card" style="background-image: url('/lp/fukuoka/images/03_whatistesla.webp');"></div>
+            <p>テスラは電気自動車のパイオニア。<br>力強い加速、先進の運転支援と上質なインテリアを備えた最先端のカーブランドです。<br>センターコンソールにはボタン一つなく、特徴的なタッチスクリーンひとつで、車両のすべてをコントロールできます。</p>
+        </div>
+    </section>
+    <section id="features">
+        <div class="container">
+            <h2>テスラレンタカーの魅力</h2>
+            <div class="img-card" style="background-image: url('/lp/fukuoka/images/04_modelY_interior.webp');"></div>
+            <p>気持ちいい加速、車内の静かさと上質なインテリアと高音質なオーディオによる快適さ、先進機能による安心感と未来の体験。<br>テスラで日常に新たな楽しみを与えませんか？<br>もちろん、特別な日やロードトリップでもワンランク上の移動体験ができます。</p>
+        </div>
+    </section>
+    <section id="howto">
+        <div class="container">
+            <h2>予約方法</h2>
+            <div class="img-card">
+                <picture style="display: block; width: 100%; height: 100%;">
+                    <source srcset="/lp/fukuoka/images/05_Reservation_Screen.webp" type="image/webp">
+                    <img src="/lp/fukuoka/images/05_Reservation_Screen.png" alt="予約画面" width="1864" height="914" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                </picture>
+            </div>
+            <p>ウェブで車種と日時、連絡方法を選択し仮予約。<br>担当者からお電話またはSNSのDMで確認後、予約確定！<br>当日は【規約と操作説明 → 現金にてお支払い→ご出発】の流れでスムーズにご利用いただけます。</p>
+            <div class="cta-section" style="padding: 60px 20px; margin-top: 40px;">
+                <div class="container" style="max-width: 800px;">
+                    <h1 class="cta-title">↓ 簡単な料金計算やご予約はこちらから ↓</h1>
+                    <a href="/" target="_blank" class="btn-reserve">予約する</a>
+                    <p style="margin-top: 20px; font-size: 1.1rem; color: #3a3a3c; text-align: center; white-space: normal;">
+                        公式SNSで、#テスラのある生活 や オトクな情報を配信中！<br>レンタカーに関する質問もDMにて承ります！
+                    </p>
+                    <div class="sns-links" data-sns-links>
+                        <span>公式SNSはこちら→</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="faq">
+        <div class="container">
+            <h2>よくあるQ&A</h2>
+            <div class="img-card" style="background-image: url('/lp/fukuoka/images/06_modelY_charging_outside.webp');"></div>
+            <div class="faq-item">
+                <h3>うまく操作できるか心配です。</h3>
+                <p>貸出時にスタッフが実演で操作方法をお教えします。<br>また、TESLA公式の動画マニュアルもあり、初めてでも安心です。</p>
+            </div>
+            <div class="faq-item">
+                <h3>充電はどこでやるの？</h3>
+                <p>外出先ではテスラのスーパーチャージャーや提携(eMPカードが利用可能な充電器)の充電スポットが利用可能です。</p>
+            </div>
+        </div>
+    </section>
+    <div class="cta-section">
+        <div class="container">
+            <h1 class="cta-title">↓ 簡単な料金計算やご予約はこちらから ↓</h1>
+            <a href="/" target="_blank" class="btn-reserve">予約する</a>
+            <p style="margin-top: 20px; font-size: 1.1rem; color: #3a3a3c; text-align: center; white-space: normal;">
+                公式SNSで、#テスラのある生活 や オトクな情報を配信中！<br>レンタカーに関する質問もDMにて承ります！
+            </p>
+            <div class="sns-links" data-sns-links>
+                <span style="margin-bottom: 14px;">公式SNSはこちら→</span>
+            </div>
+        </div>
+    </div>
+    <section id="price">
+        <div class="container">
+            <h2>料金表 (全て税込み)</h2>
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>3 時間</th>
+                        <th>6 時間</th>
+                        <th>6 時間以降<br>1 時間毎</th>
+                        <th>超過<br>1 時間毎</th>
+                        <th>超過<br>1 日毎</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>北海道<br>Model 3</strong></td>
+                        <td>5,500 円</td>
+                        <td>8,800 円</td>
+                        <td>880 円</td>
+                        <td>1,320 円</td>
+                        <td>31,680 円</td>
+                    </tr>
+                    <tr>
+                        <td><strong>福岡県<br>Model Y</strong></td>
+                        <td>6,600 円</td>
+                        <td>10,560 円</td>
+                        <td>1,100 円</td>
+                        <td>1,650 円</td>
+                        <td>39,600 円</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="price-note">
+                ※ 上記価格は税込です<br>
+                ※ CHAdeMO・J1772アダプター・e-Mobility Power充電カードは無料で貸し出し<br>
+                ※ レンタカーご利用中の充電代(SC,当社からの貸出の充電カードをご利用の充電)は基本無料<br>
+                ※ レンタカー以外への充電カードの利用が判明した場合、別途料金を請求いたします
+            </p>
+            <div style="margin-top: 30px;">
+                <h3>ノンオペレーションチャージ（ＮＯＣ）</h3>
+                <p class="price-note">・自走可能な場合：33,000 円（税込）<br>・自走不可の場合：55,000 円（税込）</p>
+            </div>
+            <div style="margin-top: 30px;">
+                <h3>車両の配達（配車引取料）</h3>
+                <p class="price-note">・営業所から半径30km以内：3,000 円(税込)<br>・30km以上：超過1kmあたり100 円(税込) ※片道単位</p>
+            </div>
+        </div>
+    </section>
+    <footer style="padding-bottom: 30px;">
+        <div class="container">
+            <p class="copyright">© 2025 プルテウスレンタカー. All rights reserved.</p>
+            <div class="sns-links sns-footer" data-sns-links>
+                <span>公式SNS</span>
+            </div>
+        </div>
+    </footer>
+    <div class="floating-reserve" id="floatingReserve" onclick="scrollToHowto()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3m8-2a9 9 0 1 0-18 0 9 9 0 0 0 18 0z"></path>
+        </svg>
+        簡単料金計算,公式SNSはこちら
+    </div>
+    <script>
+        const snsData = [
+            { href: 'https://www.instagram.com/pluteus_rent_a_car/', title: 'Instagram', path: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z' },
+            { href: 'https://x.com/pluteusrentacar', title: 'X (Twitter)', path: 'M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z' },
+            { href: 'https://www.tiktok.com/@pluteus_rent_a_car', title: 'TikTok', path: 'M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z' }
+        ];
+        function renderSNSLinks() {
+            document.querySelectorAll('[data-sns-links]').forEach(container => {
+                // アイコンがすでに追加されていないかチェック (念のため)
+                if (container.querySelectorAll('.sns-link').length > 0) return;
+                
+                const isFooter = container.classList.contains('sns-footer');
+                snsData.forEach(sns => {
+                    const link = document.createElement('a');
+                    link.href = sns.href;
+                    link.target = '_blank';
+                    link.title = sns.title;
+                    link.className = 'sns-link';
+                    link.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="${sns.path}"/></svg>`;
+                    container.appendChild(link);
+                });
+            });
+        }
+        window.addEventListener('load', () => {
+            const heroContent = document.querySelector('.hero-content');
+            const catchText = document.querySelector('.catch');
+            setTimeout(() => heroContent.classList.add('fade-in'), 300);
+            setTimeout(() => catchText.classList.add('show'), 600);
+            
+            // 修正: ページ読み込み時にSNSアイコンをすぐに描画
+            renderSNSLinks();
+        });
+        function scrollToContent() {
+            window.scrollTo({ top: document.getElementById('about').offsetTop - 20, behavior: 'smooth' });
+        }
+        function scrollToHowto() {
+            event.preventDefault();
+            const target = document.getElementById('howto');
+            if (target) {
+                const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 20;
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            }
+        }
+        const floatingBtn = document.getElementById('floatingReserve');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > window.innerHeight * 0.5) {
+                floatingBtn.classList.add('show');
+            } else {
+                floatingBtn.classList.remove('show');
+            }
+        });
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('touchstart', () => {}, { passive: true });
+        });
+    </script>
+</body>
+</html>
