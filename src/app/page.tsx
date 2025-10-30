@@ -29,19 +29,21 @@ export default function Home() {
       </section>
 
       {/* Vehicle Information */}
-      <section className="max-w-5xl mx-auto px-6 py-12">
-        <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-3xl p-8 shadow-xl">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">車両一覧</h2>
-          <div className="space-y-6">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md border-l-4 border-blue-500">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">- 北海道（安平町）-</h3>
-              <p className="text-gray-700 dark:text-gray-300">TESLA Model 3 - Long Range [外装色：白 / 内装色：白]</p>
+      <section className="max-w-5xl mx-auto px-6 py-16">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">車両一覧</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="group relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100/50 dark:border-gray-700/50 overflow-hidden">
+            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-cyan-400"></div>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 tracking-wide">- 北海道（安平町）-</h3>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">TESLA Model 3 - Long Range [外装色：白 / 内装色：白]</p>
+          </div>
+          <div className="group relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100/50 dark:border-gray-700/50 overflow-hidden">
+            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-cyan-400"></div>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 tracking-wide">- 福岡（福津市）-</h3>
+            <div className="inline-block bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 border border-blue-200 dark:border-blue-700 rounded-xl px-4 py-2 mb-3">
+              <p className="text-blue-600 dark:text-blue-400 font-semibold text-sm">☆11月1日より、福岡市千早駅 徒歩１分半の場所に！☆</p>
             </div>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md border-l-4 border-blue-500">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">- 福岡（福津市）-</h3>
-              <p className="text-blue-600 dark:text-blue-400 font-bold mb-2">☆11月1日より、福岡市千早駅 徒歩１分半の場所に！☆</p>
-              <p className="text-gray-700 dark:text-gray-300">TESLA Model Y - RWD [外装色：白 / 内装色：黒]</p>
-            </div>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">TESLA Model Y - RWD [外装色：白 / 内装色：黒]</p>
           </div>
         </div>
       </section>
