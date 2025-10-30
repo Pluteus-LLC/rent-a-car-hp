@@ -7,6 +7,12 @@
     <meta name="description" content="テスラのEVレンタカーで静かで力強いドライブを。写真映えするデザイン、先進機能、快適な移動体験をお届けします。">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -403,6 +409,42 @@
             white-space: normal;
             font-weight: 700;
         }
+        .vehicle-section {
+            background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+            padding: 60px 0;
+        }
+        .vehicle-list {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin: 40px 0;
+        }
+        .vehicle-item {
+            margin: 30px 0;
+            padding: 24px;
+            background: rgba(245, 245, 247, 0.5);
+            border-radius: 16px;
+            border-left: 4px solid #0071e3;
+        }
+        .vehicle-location {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+        }
+        .vehicle-info {
+            font-size: 1.1rem;
+            color: #3a3a3c;
+            line-height: 1.8;
+            white-space: normal;
+        }
+        .vehicle-highlight {
+            color: #0071e3;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 8px;
+        }
         .price-table {
             width: 100%;
             border-collapse: collapse;
@@ -574,6 +616,22 @@
                     <div class="sns-links" data-sns-links>
                         <span>公式SNSはこちら→</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="vehicles" class="vehicle-section">
+        <div class="container">
+            <h2>車両一覧</h2>
+            <div class="vehicle-list">
+                <div class="vehicle-item">
+                    <h3 class="vehicle-location">- 北海道（安平町）-</h3>
+                    <p class="vehicle-info">TESLA Model 3 - Long Range [外装色：白 / 内装色：白]</p>
+                </div>
+                <div class="vehicle-item">
+                    <h3 class="vehicle-location">- 福岡（福津市）-</h3>
+                    <span class="vehicle-highlight">☆11月1日より、福岡市千早駅 徒歩１分半の場所に！☆</span>
+                    <p class="vehicle-info">TESLA Model Y - RWD [外装色：白 / 内装色：黒]</p>
                 </div>
             </div>
         </div>
