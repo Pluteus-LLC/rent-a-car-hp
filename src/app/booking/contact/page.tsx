@@ -232,7 +232,7 @@ function ContactPageContent() {
       formData.append('entry.224606125', phoneNumber);
 
       // entry.522302925: 希望のエリア
-      formData.append('entry.522302925', location === '北海道' ? '北海道（安平町）' : '福岡（福津市）');
+      formData.append('entry.522302925', location === '北海道' ? '北海道（安平町）' : '福岡（福岡市東区）');
 
       // entry.2071702890: 利用開始日
       formData.append('entry.2071702890', `${startDate?.format('YYYY/MM/DD')} ${startTime}`);
@@ -401,7 +401,7 @@ function ContactPageContent() {
                           : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-orange-300 dark:hover:border-orange-600'
                       }`}
                     >
-                      福岡（福津市）
+                      福岡（福岡市東区）
                     </button>
                   </div>
                 </div>
@@ -556,7 +556,7 @@ function ContactPageContent() {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between py-1">
                   <span className="text-gray-600 dark:text-gray-400">営業所</span>
-                  <span className="font-semibold text-gray-900 dark:text-white">{location === '北海道' ? '北海道（安平町）' : '福岡（福津市）'}</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">{location === '北海道' ? '北海道（安平町）' : '福岡（福岡市東区）'}</span>
                 </div>
                 <div className="flex justify-between py-1">
                   <span className="text-gray-600 dark:text-gray-400">貸出</span>
