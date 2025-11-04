@@ -37,9 +37,9 @@ export default function Home() {
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">TESLA Model 3 - Long Range [外装色：白 / 内装色：白]</p>
           </div>
           <div className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100/50 dark:border-gray-700/50">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 tracking-wide">- 福岡（福津市）-</h3>
-            <div className="inline-block bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/30 dark:to-orange-800/30 border border-orange-200 dark:border-orange-700 rounded-xl px-4 py-2 mb-3">
-              <p className="text-orange-600 dark:text-orange-400 font-semibold text-sm">☆11月1日より、福岡市千早駅 徒歩１分半の場所に！☆</p>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 tracking-wide">- 福岡（福岡市東区）-</h3>
+            <div className="inline-block bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 border border-blue-200 dark:border-blue-700 rounded-xl px-4 py-2 mb-3">
+              <p className="text-blue-600 dark:text-blue-400 font-semibold text-sm">☆11月1日より、福岡市千早駅 徒歩１分半の場所に！☆</p>
             </div>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">TESLA Model Y - RWD [外装色：白 / 内装色：黒]</p>
           </div>

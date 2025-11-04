@@ -261,7 +261,7 @@ export default function BookingPage() {
                     }`}
                   >
                     <div className="font-bold mb-1">福岡</div>
-                    <div className="text-xs font-normal">福津市</div>
+                    <div className="text-xs font-normal">福岡市東区</div>
                     <div className="text-xs font-normal">Model Y</div>
                   </button>
                 </div>
@@ -272,25 +272,25 @@ export default function BookingPage() {
                     <div className="w-full h-32 rounded-lg overflow-hidden border border-gray-300 dark:border-gray-600">
                       {location === '北海道' ? (
                           <iframe
-                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92846.89347996594!2d141.7546304!3d42.7777778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b1e8e8e8e8e8f%3A0x1e8e8e8e8e8e8e8e!2z5YyX5rW36YGT5a6J5bmz55S6!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
+                              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d810.6023925952563!2d141.8269902747996!3d42.815988270561256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1762156191287!5m2!1sja!2sjp"
                               width="100%"
                               height="100%"
                               style={{ border: 0 }}
                               allowFullScreen
                               loading="lazy"
                               referrerPolicy="no-referrer-when-downgrade"
-                              title="北海道 安平町の地図"
+                              title="安平営業所（安平町）の地図"
                           />
                       ) : (
                           <iframe
-                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106693.4!2d130.46!3d33.77!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541f1e8e8e8e8e8%3A0x8e8e8e8e8e8e8e8e!2z56aP5bKh55yM56aP5rSl5biC!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp"
+                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.2894962326914!2d130.43825861178232!3d33.64965998876841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35418f1a736e7bf3%3A0xd6c5b3dd7f93c13e!2z5Y2D5pep6aeF!5e0!3m2!1sja!2sjp!4v1762156427743!5m2!1sja!2sjp"
                               width="100%"
                               height="100%"
                               style={{ border: 0 }}
                               allowFullScreen
                               loading="lazy"
                               referrerPolicy="no-referrer-when-downgrade"
-                              title="福岡 福津市の地図"
+                              title="千早駅（福岡市東区）の地図"
                           />
                       )}
                     </div>
