@@ -153,6 +153,77 @@ export default function Home() {
         </div>
       </main>
 
+      {/* キャンペーンセクション */}
+      <section className="max-w-5xl mx-auto px-6 py-16 mb-12">
+        <a
+          href="/exclusiveoffer/offer0001"
+          className="block max-w-2xl mx-auto bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-950/30 rounded-2xl overflow-hidden border-2 border-amber-200 dark:border-amber-800/50 transition-all duration-300 hover:shadow-xl hover:border-amber-300 dark:hover:border-amber-700 hover:scale-[1.01] cursor-pointer"
+          style={{
+            boxShadow: '0 4px 20px rgba(251, 191, 36, 0.15)',
+          }}
+        >
+          <div className="p-8 md:p-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white text-center mb-2 leading-tight">
+              充電はオーナーの奢りで
+            </h2>
+            <p className="text-base md:text-lg font-semibold text-orange-600 dark:text-orange-400 text-center mb-8">
+              北海道の宿×レンタカー 優待キャンペーン
+            </p>
+
+            {/* 4枚の画像をグリッド配置 */}
+            <div className="grid grid-cols-2 gap-3 mb-8">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                <img
+                  src="/img/exclusive/obihiro_stay1_1.avif"
+                  alt="プライベートサウナ付きコテージカンノンサウナ"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                <img
+                  src="/img/exclusive/obihiro_stay1_2.avif"
+                  alt="カンノンサウナ サウナ室内"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                <img
+                  src="/img/exclusive/obihiro_stay2_1.avif"
+                  alt="ファームステイBIEI 外観"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                <img
+                  src="/img/exclusive/obihiro_stay2_2.avif"
+                  alt="ファームステイBIEI 農園"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+            </div>
+
+            <div className="text-center">
+              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                プルテウスレンタカーを利用いただき、<br />
+                宿泊予約時に<span className="font-semibold text-orange-600 dark:text-orange-400">「充電はレンタカーの奢りで」</span><br />
+                と申していただければ<br />
+                <span className="font-bold text-gray-900 dark:text-white text-base">充電をプレゼント</span>
+              </p>
+              <div className="inline-flex items-center justify-center text-sm font-semibold text-orange-600 dark:text-orange-400">
+                <span>詳細は画像をタップ</span>
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-gray-200 dark:border-gray-800 py-8">
         <div className="max-w-7xl mx-auto px-6 text-center">
