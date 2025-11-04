@@ -38,8 +38,8 @@ export default function Home() {
           </div>
           <div className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100/50 dark:border-gray-700/50">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 tracking-wide">- 福岡（福津市）-</h3>
-            <div className="inline-block bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 border border-blue-200 dark:border-blue-700 rounded-xl px-4 py-2 mb-3">
-              <p className="text-blue-600 dark:text-blue-400 font-semibold text-sm">☆11月1日より、福岡市千早駅 徒歩１分半の場所に！☆</p>
+            <div className="inline-block bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/30 dark:to-orange-800/30 border border-orange-200 dark:border-orange-700 rounded-xl px-4 py-2 mb-3">
+              <p className="text-orange-600 dark:text-orange-400 font-semibold text-sm">☆11月1日より、福岡市千早駅 徒歩１分半の場所に！☆</p>
             </div>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">TESLA Model Y - RWD [外装色：白 / 内装色：黒]</p>
           </div>
@@ -152,6 +152,77 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {/* キャンペーンセクション */}
+      <section className="max-w-5xl mx-auto px-6 py-16 mb-12">
+        <a
+          href="/exclusiveoffer/offer0001"
+          className="block max-w-2xl mx-auto bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-950/30 rounded-2xl overflow-hidden border-2 border-amber-200 dark:border-amber-800/50 transition-all duration-300 hover:shadow-xl hover:border-amber-300 dark:hover:border-amber-700 hover:scale-[1.01] cursor-pointer"
+          style={{
+            boxShadow: '0 4px 20px rgba(251, 191, 36, 0.15)',
+          }}
+        >
+          <div className="p-8 md:p-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white text-center mb-2 leading-tight">
+              充電はオーナーの奢りで
+            </h2>
+            <p className="text-base md:text-lg font-semibold text-orange-600 dark:text-orange-400 text-center mb-8">
+              北海道の宿×レンタカー 優待キャンペーン
+            </p>
+
+            {/* 4枚の画像をグリッド配置 */}
+            <div className="grid grid-cols-2 gap-3 mb-8">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                <img
+                  src="/img/exclusive/obihiro_stay1_1.avif"
+                  alt="プライベートサウナ付きコテージカンノンサウナ"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                <img
+                  src="/img/exclusive/obihiro_stay1_2.avif"
+                  alt="カンノンサウナ サウナ室内"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                <img
+                  src="/img/exclusive/obihiro_stay2_1.avif"
+                  alt="ファームステイBIEI 外観"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                <img
+                  src="/img/exclusive/obihiro_stay2_2.avif"
+                  alt="ファームステイBIEI 農園"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+            </div>
+
+            <div className="text-center">
+              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                プルテウスレンタカーを利用いただき、<br />
+                宿泊予約時に<span className="font-semibold text-orange-600 dark:text-orange-400">「充電はレンタカーの奢りで」</span><br />
+                と申していただければ<br />
+                <span className="font-bold text-gray-900 dark:text-white text-base">充電をプレゼント</span>
+              </p>
+              <div className="inline-flex items-center justify-center text-sm font-semibold text-orange-600 dark:text-orange-400">
+                <span>詳細は画像をタップ</span>
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      </section>
 
       {/* Footer */}
       <footer className="border-t border-gray-200 dark:border-gray-800 py-8">
