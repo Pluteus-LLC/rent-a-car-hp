@@ -41,7 +41,7 @@ export default function Home() {
             <div className="inline-block bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/30 dark:to-orange-800/30 border border-orange-200 dark:border-orange-700 rounded-xl px-4 py-2 mb-3">
               <p style={{marginBottom: 0}} className="text-orange-600 dark:text-orange-400 font-semibold text-sm">☆11月1日より、福岡市千早駅 徒歩１分半の場所に！☆</p>
             </div>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">TESLA Model Y - RWD [外装色：白 / 内装色：黒]</p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">（車両整備中）</p>
           </div>
         </div>
       </section>
