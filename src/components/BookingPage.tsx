@@ -253,16 +253,17 @@ export default function BookingPage() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setLocation('福岡')}
-                    className={`py-4 px-3 rounded-lg border-2 transition-all font-semibold text-sm ${
+                    onClick={() => { /* setLocation('福岡') */ }}
+                    className={`opacity-25 py-4 px-3 rounded-lg border-2 transition-all font-semibold text-sm ${
                       location === '福岡'
                         ? 'border-orange-500 bg-orange-50 dark:bg-orange-900 text-orange-700 dark:text-orange-300'
                         : 'border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-orange-300 dark:hover:border-orange-600'
                     }`}
+                    disabled
                   >
                     <div className="font-bold mb-1">福岡</div>
                     <div className="text-xs font-normal">福岡市東区</div>
-                    <div className="text-xs font-normal">Model Y</div>
+                    <div className="text-xs font-normal">（車両整備中）</div>
                   </button>
                 </div>
               </div>
